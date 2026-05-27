@@ -40,7 +40,16 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+- [ ] Non-advisory scope enforced: no buy/sell/hold or portfolio recommendations.
+- [ ] Traceability/reproducibility plan defined: data provenance, versioned inputs,
+      deterministic parameters, and replay procedure.
+- [ ] Contract-first boundaries defined: API/event schemas, versioning, and
+      compatibility expectations.
+- [ ] Evidence-backed AI controls defined (if AI used): source references,
+      timestamps, model/provider metadata, confidence, latency, prompt version,
+      and mandatory disclaimer.
+- [ ] Simplicity gate passed: no RAG/agents/multi-provider orchestration or
+      premature cloud complexity before deterministic pipeline foundations.
 
 ## Project Structure
 

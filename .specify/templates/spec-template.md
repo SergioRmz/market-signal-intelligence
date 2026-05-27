@@ -92,11 +92,20 @@
 - **FR-003**: Users MUST be able to [key interaction, e.g., "reset their password"]
 - **FR-004**: System MUST [data requirement, e.g., "persist user preferences"]
 - **FR-005**: System MUST [behavior, e.g., "log all security events"]
+- **FR-006**: System MUST present educational/technical analysis only and MUST NOT
+  provide financial advice or buy/sell recommendations.
+- **FR-007**: If AI-generated analysis is present, each output MUST include source
+  references, timestamp, model/provider metadata, confidence, latency, prompt
+  version, and a non-investment-advice disclaimer.
+- **FR-008**: System MUST define reproducibility requirements for each analytical
+  output (input versions, transformations, and deterministic configuration).
+- **FR-009**: System MUST define explicit contracts for API and event payloads,
+  including schema versioning and compatibility rules.
 
 *Example of marking unclear requirements:*
 
-- **FR-006**: System MUST authenticate users via [NEEDS CLARIFICATION: auth method not specified - email/password, SSO, OAuth?]
-- **FR-007**: System MUST retain user data for [NEEDS CLARIFICATION: retention period not specified]
+- **FR-010**: System MUST authenticate users via [NEEDS CLARIFICATION: auth method not specified - email/password, SSO, OAuth?]
+- **FR-011**: System MUST retain user data for [NEEDS CLARIFICATION: retention period not specified]
 
 ### Key Entities *(include if feature involves data)*
 
