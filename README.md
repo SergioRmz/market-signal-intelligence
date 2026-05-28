@@ -16,6 +16,8 @@ This foundation feature includes:
 - Allowed sources policy for financial and macroeconomic data.
 - Base `AssetEvent` JSON Schema contract.
 - Valid and invalid `AssetEvent` samples.
+- Initial equity-primary asset watchlist for allowed future monitoring scope.
+- Asset watchlist JSON Schema contract and samples.
 - Lightweight local validation guidance.
 - Documentation-first repository structure.
 
@@ -58,3 +60,13 @@ Development follows specification-driven delivery:
 - `data/samples/asset-events/valid/`
 - `data/samples/asset-events/invalid/`
 - `docs/validation/event-contract-validation.md`
+- `data/watchlists/asset-watchlist.json`
+- `contracts/watchlists/asset-watchlist.schema.json`
+- `data/samples/watchlists/valid/`
+- `data/samples/watchlists/invalid/`
+- `docs/validation/asset-watchlist-validation.md`
+- `scripts/validation/check-asset-watchlist.sh`
+
+## Asset Watchlist
+
+The initial watchlist defines individual Mexican equity tickers allowed for future monitoring. `S&P/BMV IPC` may appear only as a reference benchmark entry, not as a replacement for the equity monitoring targets. The watchlist is a scope-control artifact and does not include live prices, rankings, recommendations, or trading signals.

@@ -10,7 +10,7 @@
 
 ## Validation Evidence
 
-Command executed:
+Foundation command executed:
 
 ```bash
 scripts/validation/check-foundation-artifacts.sh
@@ -25,3 +25,20 @@ Invalid sample rule mapping reviewed:
 
 - [ ] Yes
 - [ ] No
+
+Watchlist command executed when watchlist artifacts changed:
+
+```bash
+scripts/validation/check-asset-watchlist.sh
+```
+
+Result:
+
+- [ ] PASS
+- [ ] FAIL
+- [ ] Not applicable
+
+Watchlist scope reviewed when applicable:
+
+- [ ] Individual Mexican equities remain primary monitoring targets
+- [ ] `S&P/BMV IPC` is reference benchmark context only
