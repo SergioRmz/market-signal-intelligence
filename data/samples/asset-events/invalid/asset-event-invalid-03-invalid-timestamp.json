@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-invalid-003",
+  "event_type": "market.reference",
+  "schema_version": "1.0.0",
+  "occurred_at": "not-a-timestamp",
+  "source": {
+    "name": "Official Reference Source",
+    "category": "allowed"
+  },
+  "asset": {
+    "symbol": "AMXL",
+    "market": "BMV"
+  },
+  "payload": {}
+}

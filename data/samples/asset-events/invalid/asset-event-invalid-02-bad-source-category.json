@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-invalid-002",
+  "event_type": "market.reference",
+  "schema_version": "1.0.0",
+  "occurred_at": "2026-05-26T15:00:00Z",
+  "source": {
+    "name": "Unreviewed Source",
+    "category": "unreviewed"
+  },
+  "asset": {
+    "symbol": "AMXL",
+    "market": "BMV"
+  },
+  "payload": {}
+}

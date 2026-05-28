@@ -1,0 +1,18 @@
+{
+  "event_id": "evt-valid-002",
+  "event_type": "macro.reference",
+  "schema_version": "1.0.0",
+  "occurred_at": "2026-05-26T16:00:00Z",
+  "source": {
+    "name": "Official Macro Source",
+    "category": "conditional",
+    "retrieved_at": "2026-05-26T16:05:00Z"
+  },
+  "asset": {
+    "symbol": "IPC",
+    "market": "BMV"
+  },
+  "payload": {
+    "note": "Valid conditional-source sample with documented constraints."
+  }
+}
