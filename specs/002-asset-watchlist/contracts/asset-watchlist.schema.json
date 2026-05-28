@@ -1,0 +1,133 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bmv-signal-intelligence.local/contracts/asset-watchlist.schema.json",
+  "title": "Asset Watchlist",
+  "description": "Design contract for the IPC-only local asset watchlist artifact.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "watchlist_id",
+    "version",
+    "effective_date",
+    "purpose",
+    "assets"
+  ],
+  "properties": {
+    "watchlist_id": {
+      "type": "string",
+      "const": "asset-watchlist"
+    },
+    "version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "effective_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "purpose": {
+      "type": "string",
+      "minLength": 1
+    },
+    "assets": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 1,
+      "items": {
+        "$ref": "#/$defs/watchlistEntry"
+      }
+    }
+  },
+  "$defs": {
+    "watchlistEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "symbol",
+        "display_name",
+        "market",
+        "asset_type",
+        "currency",
+        "active",
+        "traceability"
+      ],
+      "properties": {
+        "symbol": {
+          "type": "string",
+          "const": "IPC"
+        },
+        "display_name": {
+          "type": "string",
+          "const": "S&P/BMV IPC"
+        },
+        "market": {
+          "$ref": "#/$defs/marketMetadata"
+        },
+        "asset_type": {
+          "type": "string",
+          "const": "index"
+        },
+        "currency": {
+          "type": "string",
+          "const": "MXN"
+        },
+        "active": {
+          "type": "boolean",
+          "const": true
+        },
+        "notes": {
+          "type": "string"
+        },
+        "traceability": {
+          "$ref": "#/$defs/traceabilityContext"
+        }
+      }
+    },
+    "marketMetadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "venue",
+        "country"
+      ],
+      "properties": {
+        "venue": {
+          "type": "string",
+          "minLength": 1
+        },
+        "country": {
+          "type": "string",
+          "minLength": 1
+        },
+        "index_family": {
+          "type": "string"
+        }
+      }
+    },
+    "traceabilityContext": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_reference",
+        "review_rationale"
+      ],
+      "properties": {
+        "source_reference": {
+          "type": "string",
+          "minLength": 1
+        },
+        "review_rationale": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reviewed_by": {
+          "type": "string"
+        },
+        "reviewed_at": {
+          "type": "string",
+          "format": "date"
+        }
+      }
+    }
+  }
+}
