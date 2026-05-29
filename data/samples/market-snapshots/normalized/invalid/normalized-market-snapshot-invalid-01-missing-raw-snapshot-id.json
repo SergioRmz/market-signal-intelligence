@@ -1,0 +1,20 @@
+{
+  "normalized_snapshot_id": "normalized-snapshot-amxl-missing-raw",
+  "schema_version": "1.0.0",
+  "asset": {
+    "symbol": "AMXL",
+    "market": "BMV",
+    "asset_role": "monitoring_target"
+  },
+  "observed_at": "2026-05-28T15:00:00Z",
+  "normalized_at": "2026-05-28T15:05:00Z",
+  "observed_values": {
+    "last_price": 18.42,
+    "currency": "MXN",
+    "volume": 1200000
+  },
+  "provenance": {
+    "source_raw_snapshot_id": "",
+    "transformation_notes": "Demonstrates missing required raw snapshot provenance."
+  }
+}

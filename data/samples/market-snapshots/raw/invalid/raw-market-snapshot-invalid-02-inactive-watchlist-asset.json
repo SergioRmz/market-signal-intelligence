@@ -1,0 +1,23 @@
+{
+  "raw_snapshot_id": "raw-snapshot-kofubl-20260528T150000Z",
+  "schema_version": "1.0.0",
+  "source": {
+    "name": "repository-local-sample",
+    "category": "local_sample",
+    "reference": "data/samples/market-snapshots/raw/invalid/raw-market-snapshot-invalid-02-inactive-watchlist-asset.json"
+  },
+  "asset": {
+    "symbol": "KOFUBL",
+    "market": "BMV"
+  },
+  "observed_at": "2026-05-28T15:00:00Z",
+  "observed_values": {
+    "last_price": 101.25,
+    "currency": "MXN",
+    "volume": 45000
+  },
+  "provenance": {
+    "sample_origin": "Static repository sample for invalid local contract validation.",
+    "review_notes": "Demonstrates rejection when a watchlist symbol is not active."
+  }
+}

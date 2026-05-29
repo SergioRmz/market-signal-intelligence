@@ -67,3 +67,32 @@ Pull requests for this feature should include:
 ## Expected Outcome
 
 Reviewers can reproduce validation from a clean clone in 10 minutes or less using repository-local instructions only.
+
+## Validation Evidence
+
+Commands executed from repository root:
+
+```bash
+scripts/validation/check-market-snapshots.sh
+scripts/validation/check-asset-watchlist.sh
+```
+
+Results:
+
+```text
+PASS: Local market snapshot contracts and samples validated
+PASS: Equity-primary asset watchlist and samples validated
+```
+
+Review summary:
+
+- Valid raw snapshot samples: 2.
+- Valid normalized snapshot samples: 2.
+- Invalid raw snapshot samples: 4.
+- Invalid normalized snapshot samples: 2.
+- Invalid samples map to `MS-REQ-002`, `MS-REQ-003`, `MS-REQ-004`, `MS-REQ-006`, `MS-REQ-007`, and `MS-REQ-009` in `docs/validation/sample-rule-mapping.md`.
+- Valid normalized samples reference valid raw samples by `raw_snapshot_id`.
+- `S&P/BMV IPC` remains benchmark context only and does not count toward equity snapshot coverage.
+- `README.md` was updated because market snapshot artifacts and validation are now project-wide foundation artifacts.
+- `AGENTS.md` was updated because agents must treat market snapshot contracts as boundaries and run market snapshot validation when those artifacts change.
+- No runtime ingestion, external API, scraping, Kafka, database, FastAPI, AWS, dashboard, AI, or live-feed behavior was introduced.

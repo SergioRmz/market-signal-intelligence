@@ -14,11 +14,11 @@
 
 **Purpose**: Create repository-local artifact locations for market snapshot contracts, samples, validation guidance, and local validation.
 
-- [ ] T001 Create snapshot contract directory in `contracts/market-snapshots/`
-- [ ] T002 Create raw snapshot sample directories in `data/samples/market-snapshots/raw/valid/` and `data/samples/market-snapshots/raw/invalid/`
-- [ ] T003 Create normalized snapshot sample directories in `data/samples/market-snapshots/normalized/valid/` and `data/samples/market-snapshots/normalized/invalid/`
-- [ ] T004 [P] Create market snapshot validation guide in `docs/validation/market-snapshot-validation.md`
-- [ ] T005 [P] Create local snapshot validation script in `scripts/validation/check-market-snapshots.sh`
+- [X] T001 Create snapshot contract directory in `contracts/market-snapshots/`
+- [X] T002 Create raw snapshot sample directories in `data/samples/market-snapshots/raw/valid/` and `data/samples/market-snapshots/raw/invalid/`
+- [X] T003 Create normalized snapshot sample directories in `data/samples/market-snapshots/normalized/valid/` and `data/samples/market-snapshots/normalized/invalid/`
+- [X] T004 [P] Create market snapshot validation guide in `docs/validation/market-snapshot-validation.md`
+- [X] T005 [P] Create local snapshot validation script in `scripts/validation/check-market-snapshots.sh`
 
 ---
 
@@ -28,13 +28,13 @@
 
 **CRITICAL**: No user story work can begin until this phase is complete.
 
-- [ ] T006 Copy raw planning contract from `specs/003-local-market-snapshot-ingestion/contracts/raw-market-snapshot.schema.json` to `contracts/market-snapshots/raw-market-snapshot.schema.json`
-- [ ] T007 Copy normalized planning contract from `specs/003-local-market-snapshot-ingestion/contracts/normalized-market-snapshot.schema.json` to `contracts/market-snapshots/normalized-market-snapshot.schema.json`
-- [ ] T008 Add `MS-REQ-001` through `MS-REQ-010` snapshot rule IDs to `docs/validation/rule-ids.md`
-- [ ] T009 Add market snapshot artifact paths and minimum required sections to `docs/foundation/artifact-manifest.md`
-- [ ] T010 Define local commands, rule IDs, evidence format, failure handling, and no-runtime guardrails in `docs/validation/market-snapshot-validation.md`
-- [ ] T011 Implement required path checks and JSON parse checks in `scripts/validation/check-market-snapshots.sh`
-- [ ] T012 Extend `scripts/validation/check-market-snapshots.sh` to reject prohibited advisory terms, live-feed fields, external API references, scraping references, Kafka references, database references, FastAPI references, AWS references, and AI references in `data/samples/market-snapshots/`
+- [X] T006 Copy raw planning contract from `specs/003-local-market-snapshot-ingestion/contracts/raw-market-snapshot.schema.json` to `contracts/market-snapshots/raw-market-snapshot.schema.json`
+- [X] T007 Copy normalized planning contract from `specs/003-local-market-snapshot-ingestion/contracts/normalized-market-snapshot.schema.json` to `contracts/market-snapshots/normalized-market-snapshot.schema.json`
+- [X] T008 Add `MS-REQ-001` through `MS-REQ-010` snapshot rule IDs to `docs/validation/rule-ids.md`
+- [X] T009 Add market snapshot artifact paths and minimum required sections to `docs/foundation/artifact-manifest.md`
+- [X] T010 Define local commands, rule IDs, evidence format, failure handling, and no-runtime guardrails in `docs/validation/market-snapshot-validation.md`
+- [X] T011 Implement required path checks and JSON parse checks in `scripts/validation/check-market-snapshots.sh`
+- [X] T012 Extend `scripts/validation/check-market-snapshots.sh` to reject prohibited advisory terms, live-feed fields, external API references, scraping references, Kafka references, database references, FastAPI references, AWS references, and AI references in `data/samples/market-snapshots/`
 
 **Checkpoint**: Contracts, rule IDs, manifest entries, and baseline validation are ready.
 
@@ -48,18 +48,18 @@
 
 ### Tests for User Story 1
 
-- [ ] T013 [P] [US1] Add raw snapshot contract review scenario in `specs/003-local-market-snapshot-ingestion/contracts/test-raw-market-snapshot.md`
-- [ ] T014 [P] [US1] Add raw sample independent review checklist in `docs/validation/market-snapshot-validation.md`
+- [X] T013 [P] [US1] Add raw snapshot contract review scenario in `specs/003-local-market-snapshot-ingestion/contracts/test-raw-market-snapshot.md`
+- [X] T014 [P] [US1] Add raw sample independent review checklist in `docs/validation/market-snapshot-validation.md`
 
 ### Implementation for User Story 1
 
-- [ ] T015 [P] [US1] Create first valid raw equity snapshot sample in `data/samples/market-snapshots/raw/valid/raw-market-snapshot-valid-01-equity.json`
-- [ ] T016 [P] [US1] Create second valid raw equity snapshot sample in `data/samples/market-snapshots/raw/valid/raw-market-snapshot-valid-02-equity.json`
-- [ ] T017 [P] [US1] Create invalid raw snapshot for missing watchlist asset in `data/samples/market-snapshots/raw/invalid/raw-market-snapshot-invalid-01-missing-watchlist-asset.json`
-- [ ] T018 [P] [US1] Create invalid raw snapshot for inactive watchlist asset in `data/samples/market-snapshots/raw/invalid/raw-market-snapshot-invalid-02-inactive-watchlist-asset.json`
-- [ ] T019 [P] [US1] Create invalid raw snapshot for malformed required fields in `data/samples/market-snapshots/raw/invalid/raw-market-snapshot-invalid-03-malformed-required-fields.json`
-- [ ] T020 [US1] Document raw snapshot invalid sample mappings in `docs/validation/sample-rule-mapping.md`
-- [ ] T021 [US1] Extend `scripts/validation/check-market-snapshots.sh` to validate raw sample required fields, canonical symbol usage, active watchlist membership, and observed values in `data/samples/market-snapshots/raw/`
+- [X] T015 [P] [US1] Create first valid raw equity snapshot sample in `data/samples/market-snapshots/raw/valid/raw-market-snapshot-valid-01-equity.json`
+- [X] T016 [P] [US1] Create second valid raw equity snapshot sample in `data/samples/market-snapshots/raw/valid/raw-market-snapshot-valid-02-equity.json`
+- [X] T017 [P] [US1] Create invalid raw snapshot for missing watchlist asset in `data/samples/market-snapshots/raw/invalid/raw-market-snapshot-invalid-01-missing-watchlist-asset.json`
+- [X] T018 [P] [US1] Create invalid raw snapshot for inactive watchlist asset in `data/samples/market-snapshots/raw/invalid/raw-market-snapshot-invalid-02-inactive-watchlist-asset.json`
+- [X] T019 [P] [US1] Create invalid raw snapshot for malformed required fields in `data/samples/market-snapshots/raw/invalid/raw-market-snapshot-invalid-03-malformed-required-fields.json`
+- [X] T020 [US1] Document raw snapshot invalid sample mappings in `docs/validation/sample-rule-mapping.md`
+- [X] T021 [US1] Extend `scripts/validation/check-market-snapshots.sh` to validate raw sample required fields, canonical symbol usage, active watchlist membership, and observed values in `data/samples/market-snapshots/raw/`
 
 **Checkpoint**: US1 is independently testable through raw sample review and local validation.
 
@@ -73,17 +73,17 @@
 
 ### Tests for User Story 2
 
-- [ ] T022 [P] [US2] Add normalized snapshot contract review scenario in `specs/003-local-market-snapshot-ingestion/contracts/test-normalized-market-snapshot.md`
-- [ ] T023 [P] [US2] Add raw-to-normalized provenance review checklist in `docs/validation/market-snapshot-validation.md`
+- [X] T022 [P] [US2] Add normalized snapshot contract review scenario in `specs/003-local-market-snapshot-ingestion/contracts/test-normalized-market-snapshot.md`
+- [X] T023 [P] [US2] Add raw-to-normalized provenance review checklist in `docs/validation/market-snapshot-validation.md`
 
 ### Implementation for User Story 2
 
-- [ ] T024 [P] [US2] Create first valid normalized equity snapshot sample in `data/samples/market-snapshots/normalized/valid/normalized-market-snapshot-valid-01-equity.json`
-- [ ] T025 [P] [US2] Create second valid normalized equity snapshot sample in `data/samples/market-snapshots/normalized/valid/normalized-market-snapshot-valid-02-equity.json`
-- [ ] T026 [P] [US2] Create invalid normalized snapshot missing raw provenance in `data/samples/market-snapshots/normalized/invalid/normalized-market-snapshot-invalid-01-missing-raw-snapshot-id.json`
-- [ ] T027 [P] [US2] Create invalid normalized snapshot using exchange symbol variant in `data/samples/market-snapshots/normalized/invalid/normalized-market-snapshot-invalid-02-exchange-symbol-variant.json`
-- [ ] T028 [US2] Document normalized snapshot invalid sample mappings in `docs/validation/sample-rule-mapping.md`
-- [ ] T029 [US2] Extend `scripts/validation/check-market-snapshots.sh` to validate normalized sample required fields, canonical symbol usage, `raw_snapshot_id` links, and observed values in `data/samples/market-snapshots/normalized/`
+- [X] T024 [P] [US2] Create first valid normalized equity snapshot sample in `data/samples/market-snapshots/normalized/valid/normalized-market-snapshot-valid-01-equity.json`
+- [X] T025 [P] [US2] Create second valid normalized equity snapshot sample in `data/samples/market-snapshots/normalized/valid/normalized-market-snapshot-valid-02-equity.json`
+- [X] T026 [P] [US2] Create invalid normalized snapshot missing raw provenance in `data/samples/market-snapshots/normalized/invalid/normalized-market-snapshot-invalid-01-missing-raw-snapshot-id.json`
+- [X] T027 [P] [US2] Create invalid normalized snapshot using exchange symbol variant in `data/samples/market-snapshots/normalized/invalid/normalized-market-snapshot-invalid-02-exchange-symbol-variant.json`
+- [X] T028 [US2] Document normalized snapshot invalid sample mappings in `docs/validation/sample-rule-mapping.md`
+- [X] T029 [US2] Extend `scripts/validation/check-market-snapshots.sh` to validate normalized sample required fields, canonical symbol usage, `raw_snapshot_id` links, and observed values in `data/samples/market-snapshots/normalized/`
 
 **Checkpoint**: US2 is independently testable through raw/normalized comparison and provenance validation.
 
@@ -97,16 +97,16 @@
 
 ### Tests for User Story 3
 
-- [ ] T030 [P] [US3] Add clean-clone validation runbook expectations to `specs/003-local-market-snapshot-ingestion/quickstart.md`
-- [ ] T031 [P] [US3] Add validation evidence checklist and no-runtime scope checklist to `docs/validation/market-snapshot-validation.md`
+- [X] T030 [P] [US3] Add clean-clone validation runbook expectations to `specs/003-local-market-snapshot-ingestion/quickstart.md`
+- [X] T031 [P] [US3] Add validation evidence checklist and no-runtime scope checklist to `docs/validation/market-snapshot-validation.md`
 
 ### Implementation for User Story 3
 
-- [ ] T032 [P] [US3] Create invalid raw snapshot with prohibited advisory or live-feed content in `data/samples/market-snapshots/raw/invalid/raw-market-snapshot-invalid-04-prohibited-content.json`
-- [ ] T033 [US3] Add prohibited content invalid sample mapping to `docs/validation/sample-rule-mapping.md`
-- [ ] T034 [US3] Extend `scripts/validation/check-market-snapshots.sh` to verify valid sample counts, invalid sample counts, and `MS-REQ-*` mappings in `docs/validation/sample-rule-mapping.md`
-- [ ] T035 [US3] Extend `scripts/validation/check-market-snapshots.sh` to print `PASS: Local market snapshot contracts and samples validated` when all snapshot checks pass
-- [ ] T036 [US3] Update `docs/validation/market-snapshot-validation.md` with final local validation command, expected output, evidence format, and failure handling
+- [X] T032 [P] [US3] Create invalid raw snapshot with prohibited advisory or live-feed content in `data/samples/market-snapshots/raw/invalid/raw-market-snapshot-invalid-04-prohibited-content.json`
+- [X] T033 [US3] Add prohibited content invalid sample mapping to `docs/validation/sample-rule-mapping.md`
+- [X] T034 [US3] Extend `scripts/validation/check-market-snapshots.sh` to verify valid sample counts, invalid sample counts, and `MS-REQ-*` mappings in `docs/validation/sample-rule-mapping.md`
+- [X] T035 [US3] Extend `scripts/validation/check-market-snapshots.sh` to print `PASS: Local market snapshot contracts and samples validated` when all snapshot checks pass
+- [X] T036 [US3] Update `docs/validation/market-snapshot-validation.md` with final local validation command, expected output, evidence format, and failure handling
 
 **Checkpoint**: US3 is independently testable through the local validation command and evidence checklist.
 
@@ -116,14 +116,14 @@
 
 **Purpose**: Final consistency, documentation review, and reproducibility evidence across all stories.
 
-- [ ] T037 [P] Update `specs/003-local-market-snapshot-ingestion/quickstart.md` with final validation evidence and sample counts
-- [ ] T038 [P] Cross-check snapshot terminology across `contracts/market-snapshots/`, `docs/validation/market-snapshot-validation.md`, and `data/samples/market-snapshots/`
-- [ ] T039 [P] Review `README.md` for project-wide snapshot usage or validation guidance needs and update `README.md` only if needed
-- [ ] T040 [P] Review `AGENTS.md` for project-wide snapshot agent guidance needs and update `AGENTS.md` only if needed
-- [ ] T041 Document README and AGENTS review outcome in `specs/003-local-market-snapshot-ingestion/quickstart.md`
-- [ ] T042 Run `scripts/validation/check-market-snapshots.sh` from repository root and capture pass/fail evidence in `specs/003-local-market-snapshot-ingestion/quickstart.md`
-- [ ] T043 Verify all new snapshot artifacts are listed in `docs/foundation/artifact-manifest.md` or justified by this task plan
-- [ ] T044 Verify no runtime ingestion, external API, scraping, Kafka, database, FastAPI, AWS, dashboard, AI, or live-feed behavior was added and document the result in `specs/003-local-market-snapshot-ingestion/quickstart.md`
+- [X] T037 [P] Update `specs/003-local-market-snapshot-ingestion/quickstart.md` with final validation evidence and sample counts
+- [X] T038 [P] Cross-check snapshot terminology across `contracts/market-snapshots/`, `docs/validation/market-snapshot-validation.md`, and `data/samples/market-snapshots/`
+- [X] T039 [P] Review `README.md` for project-wide snapshot usage or validation guidance needs and update `README.md` only if needed
+- [X] T040 [P] Review `AGENTS.md` for project-wide snapshot agent guidance needs and update `AGENTS.md` only if needed
+- [X] T041 Document README and AGENTS review outcome in `specs/003-local-market-snapshot-ingestion/quickstart.md`
+- [X] T042 Run `scripts/validation/check-market-snapshots.sh` from repository root and capture pass/fail evidence in `specs/003-local-market-snapshot-ingestion/quickstart.md`
+- [X] T043 Verify all new snapshot artifacts are listed in `docs/foundation/artifact-manifest.md` or justified by this task plan
+- [X] T044 Verify no runtime ingestion, external API, scraping, Kafka, database, FastAPI, AWS, dashboard, AI, or live-feed behavior was added and document the result in `specs/003-local-market-snapshot-ingestion/quickstart.md`
 
 ---
 

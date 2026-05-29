@@ -1,0 +1,23 @@
+{
+  "raw_snapshot_id": "raw-snapshot-notlisted-20260528T150000Z",
+  "schema_version": "1.0.0",
+  "source": {
+    "name": "repository-local-sample",
+    "category": "local_sample",
+    "reference": "data/samples/market-snapshots/raw/invalid/raw-market-snapshot-invalid-01-missing-watchlist-asset.json"
+  },
+  "asset": {
+    "symbol": "NOTLISTED",
+    "market": "BMV"
+  },
+  "observed_at": "2026-05-28T15:00:00Z",
+  "observed_values": {
+    "last_price": 10.1,
+    "currency": "MXN",
+    "volume": 1000
+  },
+  "provenance": {
+    "sample_origin": "Static repository sample for invalid local contract validation.",
+    "review_notes": "Demonstrates rejection when a symbol is absent from the canonical watchlist."
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "raw_snapshot_id": "raw-snapshot-cemexcpo-20260528T150000Z",
+  "schema_version": "1.0.0",
+  "source": {
+    "name": "repository-local-sample",
+    "category": "local_sample",
+    "reference": "data/samples/market-snapshots/raw/valid/raw-market-snapshot-valid-02-equity.json"
+  },
+  "asset": {
+    "symbol": "CEMEXCPO",
+    "market": "BMV"
+  },
+  "observed_at": "2026-05-28T15:00:00Z",
+  "observed_values": {
+    "last_price": 13.75,
+    "currency": "MXN",
+    "volume": 950000
+  },
+  "provenance": {
+    "sample_origin": "Static repository sample for local contract validation.",
+    "review_notes": "Uses an active canonical watchlist equity symbol and illustrative values."
+  },
+  "notes": "Educational static sample for raw snapshot validation."
+}

@@ -1,6 +1,6 @@
 {
   "watchlist_id": "asset-watchlist",
-  "version": "2026.05.28",
+  "version": "2026.05.28.1",
   "effective_date": "2026-05-28",
   "purpose": "Repository-local allowlist of individual Mexican market assets permitted for future educational and technical monitoring, with S&P/BMV IPC retained only as a reference benchmark.",
   "assets": [
@@ -105,6 +105,27 @@
       "traceability": {
         "source_reference": "Public BMV issuer/listing and S&P/BMV IPC constituent reference materials; no market values captured.",
         "review_rationale": "Included as a well-known Mexican equity with clear BMV identifier for future monitoring scope.",
+        "reviewed_by": "maintainer",
+        "reviewed_at": "2026-05-28"
+      }
+    },
+    {
+      "symbol": "KOFUBL",
+      "display_name": "Coca-Cola FEMSA, S.A.B. de C.V.",
+      "market": {
+        "venue": "Bolsa Mexicana de Valores",
+        "country": "MX",
+        "exchange_symbol": "KOFUBL",
+        "index_membership": "S&P/BMV IPC constituent reference universe"
+      },
+      "asset_type": "equity",
+      "asset_role": "monitoring_target",
+      "currency": "MXN",
+      "active": false,
+      "notes": "Inactive validation fixture retained for snapshot status checks; no market values or trading guidance captured.",
+      "traceability": {
+        "source_reference": "Public BMV issuer/listing and S&P/BMV IPC constituent reference materials; no market values captured.",
+        "review_rationale": "Retained as an inactive equity entry so local snapshot validation can demonstrate active-status rejection without adding runtime lookup behavior.",
         "reviewed_by": "maintainer",
         "reviewed_at": "2026-05-28"
       }

@@ -1,0 +1,24 @@
+{
+  "raw_snapshot_id": "raw-snapshot-amxl-20260528T150000Z",
+  "schema_version": "1.0.0",
+  "source": {
+    "name": "repository-local-sample",
+    "category": "local_sample",
+    "reference": "data/samples/market-snapshots/raw/valid/raw-market-snapshot-valid-01-equity.json"
+  },
+  "asset": {
+    "symbol": "AMXL",
+    "market": "BMV"
+  },
+  "observed_at": "2026-05-28T15:00:00Z",
+  "observed_values": {
+    "last_price": 18.42,
+    "currency": "MXN",
+    "volume": 1200000
+  },
+  "provenance": {
+    "sample_origin": "Static repository sample for local contract validation.",
+    "review_notes": "Uses an active canonical watchlist equity symbol and illustrative values."
+  },
+  "notes": "Educational static sample for raw snapshot validation."
+}

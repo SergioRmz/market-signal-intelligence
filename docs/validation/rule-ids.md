@@ -35,3 +35,16 @@
 - `WL-REQ-008`: Watchlist entries must include traceability context.
 - `WL-REQ-009`: Watchlist and samples must not include live prices, target prices, ratings, trading signals, recommendations, or performance forecasts.
 - `WL-REQ-010`: Invalid watchlist samples must map to at least one rule ID in `docs/validation/sample-rule-mapping.md`.
+
+## Market Snapshot Rules
+
+- `MS-REQ-001`: Raw and normalized snapshot contracts must exist and be documented.
+- `MS-REQ-002`: Raw snapshots must include required identity, source, asset, timestamp, observed values, and provenance fields.
+- `MS-REQ-003`: Normalized snapshots must include required identity, `raw_snapshot_id`, asset, timestamp, observed values, and provenance fields.
+- `MS-REQ-004`: Snapshot `asset.symbol` must match a canonical active symbol in `data/watchlists/asset-watchlist.json`.
+- `MS-REQ-005`: `S&P/BMV IPC` is optional benchmark context only and must not count toward equity snapshot coverage.
+- `MS-REQ-006`: Snapshot observed values must include `last_price`, `currency`, and `volume`.
+- `MS-REQ-007`: Normalized snapshots must reference an existing valid raw snapshot by `raw_snapshot_id`.
+- `MS-REQ-008`: Invalid samples must map to at least one `MS-REQ-*` rule ID in `docs/validation/sample-rule-mapping.md`.
+- `MS-REQ-009`: Snapshot artifacts must not include live-feed behavior, advisory language, target prices, ratings, rankings, recommendations, or performance forecasts.
+- `MS-REQ-010`: Snapshot validation must be reproducible locally without network access or deployed services.
