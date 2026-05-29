@@ -8,6 +8,16 @@
 
 **Input**: User description: "Crea la spec 003-local-market-snapshot-ingestion. Debe implementar una base local de ingesta usando archivos sample. Debe validar que el activo exista y este activo en la watchlist. Debe separar raw snapshot de normalized snapshot. Debe incluir samples validos e invalidos. Debe agregar validaciones ligeras. No debe agregar APIs externas, scraping, Kafka, base de datos, FastAPI, AWS ni IA."
 
+## Clarifications
+
+### Session 2026-05-28
+
+- Q: How should snapshots handle `S&P/BMV IPC` relative to active equity monitoring targets? → A: Accept active equities and allow `IPC` only as an optional benchmark; `IPC` does not count toward equity minimums.
+- Q: Should raw snapshots accept exchange symbol variants or only canonical watchlist symbols? → A: Raw snapshots must use only the canonical watchlist `symbol`; exchange variants are invalid.
+- Q: What minimum observed market fields should valid snapshot samples include? → A: Require `last_price`, `currency`, and `volume`; other market fields are optional.
+- Q: Must invalid samples cover missing asset and inactive asset as separate failures? → A: Invalid samples must cover both missing asset and inactive asset as separate failures.
+- Q: How should normalized snapshots reference their source raw sample? → A: Each normalized snapshot must reference a required `raw_snapshot_id` from its source raw sample.
+
 ## User Scenarios & Testing *(mandatory)*
 
 ### User Story 1 - Ingest Local Sample Snapshots (Priority: P1)
@@ -61,8 +71,8 @@ As a contributor or future agent, I need lightweight local validation rules and 
 
 ### Edge Cases
 
-- What happens when a raw snapshot references a symbol that exists only as the `S&P/BMV IPC` reference benchmark rather than an active equity monitoring target?
-- What happens when a raw snapshot uses a valid exchange symbol variant but not the canonical local watchlist symbol?
+- What happens when a raw snapshot references `S&P/BMV IPC` without the required active equity snapshot coverage?
+- What happens when a raw snapshot uses an exchange symbol variant instead of the canonical local watchlist `symbol`?
 - How is a raw snapshot handled when required timing, source, asset, or observed-value fields are missing?
 - What happens when a normalized snapshot exists without a corresponding raw snapshot reference?
 - How are stale, future-dated, or malformed snapshot timestamps identified during local validation?
@@ -74,28 +84,30 @@ As a contributor or future agent, I need lightweight local validation rules and 
 
 - **FR-001**: The feature MUST define a local market snapshot ingestion baseline based only on repository sample files and documentation, without live or external data acquisition.
 - **FR-002**: The feature MUST define raw market snapshot artifacts that preserve source-facing observation details, including source context, asset identity, observation timing, observed values, and provenance metadata.
-- **FR-003**: The feature MUST define normalized market snapshot artifacts that are separate from raw snapshots and use canonical watchlist-aligned asset identity, normalized timing, normalized observed-value fields, and provenance back to the raw snapshot.
+- **FR-003**: The feature MUST define normalized market snapshot artifacts that are separate from raw snapshots and use canonical watchlist-aligned asset identity, normalized timing, normalized observed-value fields, and a required `raw_snapshot_id` provenance reference back to the raw snapshot.
 - **FR-004**: Raw snapshot samples and normalized snapshot samples MUST be stored as distinct sample sets so reviewers can evaluate source preservation and normalized output independently.
 - **FR-005**: A raw snapshot MUST be eligible for normalization only when its asset symbol exists in `data/watchlists/asset-watchlist.json` and the corresponding watchlist entry has `active` set to true.
 - **FR-006**: A snapshot referencing an asset that is missing from the watchlist MUST be classified as invalid for this local ingestion baseline.
 - **FR-007**: A snapshot referencing an inactive watchlist asset MUST be classified as invalid for this local ingestion baseline.
-- **FR-008**: The feature MUST preserve the equity-primary watchlist rule: individual Mexican equities are monitoring targets, while `S&P/BMV IPC` is reference benchmark context only and MUST NOT replace equity snapshot coverage.
-- **FR-009**: The feature MUST include at least two valid raw snapshot samples and at least two valid normalized snapshot samples that demonstrate successful local snapshot acceptance and normalization readiness.
-- **FR-010**: The feature MUST include at least three invalid snapshot samples demonstrating distinct failures, including missing or inactive watchlist asset validation, malformed required fields, and prohibited advisory or live-feed content.
-- **FR-011**: Each invalid snapshot sample MUST map to at least one stable validation rule ID documented in repository validation guidance.
-- **FR-012**: The feature MUST define lightweight validation rules for required fields, raw-to-normalized separation, watchlist existence, active status, timestamp quality, observed-value shape, provenance linkage, and prohibited non-local behavior.
-- **FR-013**: The local validation guidance MUST be reproducible from a clean repository checkout without network access, deployed services, event brokers, database connections, service endpoints, cloud resources, or AI tools.
-- **FR-014**: The feature MUST document validation evidence expected from reviewers, including reviewed sample counts, pass/fail classification, active-watchlist checks, invalid sample rule mappings, and scope-guardrail confirmation.
-- **FR-015**: The feature MUST NOT add external APIs, website scraping, Kafka or streaming topology, database persistence, FastAPI or service endpoints, AWS or cloud automation, dashboard behavior, AI analysis, RAG workflows, autonomous agents, or live price fetching.
-- **FR-016**: Snapshot artifacts MUST NOT include buy, sell, hold, rating, ranking, target price, portfolio allocation, recommendation, or performance forecast language.
-- **FR-017**: Snapshot artifacts MUST remain educational and technical examples for local validation and MUST NOT imply investment advice or trading signals.
-- **FR-018**: The feature MUST update governed artifact traceability so new snapshot contracts, samples, validation guidance, and local validation artifacts are discoverable by maintainers.
-- **FR-019**: Future ingestion work MUST be able to use the raw and normalized snapshot definitions as contract boundaries without relying on external lookup behavior introduced by this feature.
+- **FR-008**: The feature MUST preserve the equity-primary watchlist rule: individual Mexican equities are monitoring targets, while active `S&P/BMV IPC` snapshots MAY be accepted only as optional benchmark context and MUST NOT replace or count toward required equity snapshot coverage.
+- **FR-009**: Raw and normalized snapshots MUST use the canonical `symbol` value from `data/watchlists/asset-watchlist.json`; samples using exchange symbol variants instead of the canonical local symbol MUST be classified as invalid.
+- **FR-010**: The feature MUST include at least two valid raw snapshot samples and at least two valid normalized snapshot samples that demonstrate successful local snapshot acceptance and normalization readiness.
+- **FR-011**: The feature MUST include invalid snapshot samples demonstrating distinct failures, including separate examples for a missing watchlist asset and an inactive watchlist asset, plus malformed required fields and prohibited advisory or live-feed content.
+- **FR-012**: Each invalid snapshot sample MUST map to at least one stable validation rule ID documented in repository validation guidance.
+- **FR-013**: Valid raw and normalized snapshot samples MUST include observed values for `last_price`, `currency`, and `volume`; other market observation fields MAY be included only when they remain static, local, and non-advisory.
+- **FR-014**: The feature MUST define lightweight validation rules for required fields, raw-to-normalized separation, watchlist existence, active status, canonical symbol usage, timestamp quality, observed-value shape, required `raw_snapshot_id` provenance linkage, and prohibited non-local behavior.
+- **FR-015**: The local validation guidance MUST be reproducible from a clean repository checkout without network access, deployed services, event brokers, database connections, service endpoints, cloud resources, or AI tools.
+- **FR-016**: The feature MUST document validation evidence expected from reviewers, including reviewed sample counts, pass/fail classification, active-watchlist checks, invalid sample rule mappings, and scope-guardrail confirmation.
+- **FR-017**: The feature MUST NOT add external APIs, website scraping, Kafka or streaming topology, database persistence, FastAPI or service endpoints, AWS or cloud automation, dashboard behavior, AI analysis, RAG workflows, autonomous agents, or live price fetching.
+- **FR-018**: Snapshot artifacts MUST NOT include buy, sell, hold, rating, ranking, target price, portfolio allocation, recommendation, or performance forecast language.
+- **FR-019**: Snapshot artifacts MUST remain educational and technical examples for local validation and MUST NOT imply investment advice or trading signals.
+- **FR-020**: The feature MUST update governed artifact traceability so new snapshot contracts, samples, validation guidance, and local validation artifacts are discoverable by maintainers.
+- **FR-021**: Future ingestion work MUST be able to use the raw and normalized snapshot definitions as contract boundaries without relying on external lookup behavior introduced by this feature.
 
 ### Key Entities *(include if feature involves data)*
 
-- **Raw Market Snapshot**: A local sample representation of a source-shaped market observation, preserving source context, original asset identifier, observation timestamp, observed values, and provenance needed for reproducibility.
-- **Normalized Market Snapshot**: A canonical sample representation derived from an eligible raw snapshot, using active watchlist asset identity, normalized timing and observed-value fields, and a reference back to the raw snapshot.
+- **Raw Market Snapshot**: A local sample representation of a source-shaped market observation, preserving source context, original asset identifier, observation timestamp, required `last_price`, `currency`, and `volume` observed values, a `raw_snapshot_id`, and provenance needed for reproducibility.
+- **Normalized Market Snapshot**: A canonical sample representation derived from an eligible raw snapshot, using active watchlist asset identity, normalized timing, required `last_price`, `currency`, and `volume` observed values, and a required `raw_snapshot_id` reference back to the raw snapshot.
 - **Snapshot Sample Set**: The grouped valid and invalid raw or normalized examples used by reviewers to verify interpretation of snapshot validation rules.
 - **Active Watchlist Asset**: A watchlist entry in `data/watchlists/asset-watchlist.json` whose symbol exists and whose `active` value permits local ingestion baseline evaluation.
 - **Snapshot Validation Rule**: A stable rule with an identifier used to classify raw and normalized snapshot samples, explain invalid examples, and support review evidence.
