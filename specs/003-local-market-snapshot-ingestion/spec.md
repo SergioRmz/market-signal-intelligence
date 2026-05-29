@@ -17,6 +17,7 @@
 - Q: What minimum observed market fields should valid snapshot samples include? → A: Require `last_price`, `currency`, and `volume`; other market fields are optional.
 - Q: Must invalid samples cover missing asset and inactive asset as separate failures? → A: Invalid samples must cover both missing asset and inactive asset as separate failures.
 - Q: How should normalized snapshots reference their source raw sample? → A: Each normalized snapshot must reference a required `raw_snapshot_id` from its source raw sample.
+- Q: What general project documentation must be updated before completion? → A: Review `README.md` and `AGENTS.md`, and update them if and only if project-wide usage, validation, scope, or agent guidance changes.
 
 ## User Scenarios & Testing *(mandatory)*
 
@@ -102,7 +103,8 @@ As a contributor or future agent, I need lightweight local validation rules and 
 - **FR-018**: Snapshot artifacts MUST NOT include buy, sell, hold, rating, ranking, target price, portfolio allocation, recommendation, or performance forecast language.
 - **FR-019**: Snapshot artifacts MUST remain educational and technical examples for local validation and MUST NOT imply investment advice or trading signals.
 - **FR-020**: The feature MUST update governed artifact traceability so new snapshot contracts, samples, validation guidance, and local validation artifacts are discoverable by maintainers.
-- **FR-021**: Future ingestion work MUST be able to use the raw and normalized snapshot definitions as contract boundaries without relying on external lookup behavior introduced by this feature.
+- **FR-021**: Before completion, the feature MUST review `README.md` and `AGENTS.md` and update them if and only if snapshot ingestion artifacts introduce project-wide usage instructions, validation workflow changes, contributor guidance, scope boundaries, or agent operating constraints not already covered.
+- **FR-022**: Future ingestion work MUST be able to use the raw and normalized snapshot definitions as contract boundaries without relying on external lookup behavior introduced by this feature.
 
 ### Key Entities *(include if feature involves data)*
 
@@ -123,6 +125,7 @@ As a contributor or future agent, I need lightweight local validation rules and 
 - **SC-005**: Local validation evidence can be reproduced from a clean repository checkout in 10 minutes or less without network access or deployed infrastructure.
 - **SC-006**: 0 feature deliverables introduce external APIs, scraping, Kafka, databases, FastAPI endpoints, AWS resources, AI analysis, live price fetching, or other runtime market-data integrations.
 - **SC-007**: At least 90% of maintainers reviewing the feature can explain the raw-vs-normalized boundary, active-watchlist gate, and non-advisory scope within 10 minutes using only repository-local artifacts.
+- **SC-008**: Completion review confirms `README.md` and `AGENTS.md` were either updated with required project-wide guidance or explicitly documented as not needing changes.
 
 ## Assumptions
 
@@ -131,3 +134,4 @@ As a contributor or future agent, I need lightweight local validation rules and 
 - Raw snapshots may preserve source-shaped field names or values, while normalized snapshots use canonical platform terminology defined by this feature.
 - Lightweight validation may include repository-local commands or manual review guidance, but it must not depend on external services or network calls.
 - Sample market values are illustrative, static, and non-advisory; they do not represent live prices, recommendations, or performance forecasts.
+- General project documentation updates are conditional; they are required only when the feature introduces information that maintainers, contributors, or agents need outside feature-specific artifacts.
