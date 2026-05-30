@@ -1,0 +1,26 @@
+{
+  "watchlist_id": "asset-watchlist",
+  "version": "2026.05.28-sample-invalid-advisory-content",
+  "effective_date": "2026-05-28",
+  "purpose": "Invalid sample that contains prohibited advisory content.",
+  "assets": [
+    {
+      "symbol": "AMXL",
+      "display_name": "America Movil, S.A.B. de C.V.",
+      "market": {
+        "venue": "Bolsa Mexicana de Valores",
+        "country": "MX",
+        "exchange_symbol": "AMXL"
+      },
+      "asset_type": "equity",
+      "asset_role": "monitoring_target",
+      "currency": "MXN",
+      "active": true,
+      "notes": "Buy signal example that must be rejected by validation.",
+      "traceability": {
+        "source_reference": "Public issuer/listing reference materials; no market values captured.",
+        "review_rationale": "Invalid example for non-advisory content validation."
+      }
+    }
+  ]
+}

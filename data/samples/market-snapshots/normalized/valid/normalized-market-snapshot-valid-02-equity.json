@@ -1,0 +1,21 @@
+{
+  "normalized_snapshot_id": "normalized-snapshot-cemexcpo-20260528T150000Z",
+  "schema_version": "1.0.0",
+  "raw_snapshot_id": "raw-snapshot-cemexcpo-20260528T150000Z",
+  "asset": {
+    "symbol": "CEMEXCPO",
+    "market": "BMV",
+    "asset_role": "monitoring_target"
+  },
+  "observed_at": "2026-05-28T15:00:00Z",
+  "normalized_at": "2026-05-28T15:05:00Z",
+  "observed_values": {
+    "last_price": 13.75,
+    "currency": "MXN",
+    "volume": 950000
+  },
+  "provenance": {
+    "source_raw_snapshot_id": "raw-snapshot-cemexcpo-20260528T150000Z",
+    "transformation_notes": "Canonical symbol and observed values preserved from static raw sample."
+  }
+}

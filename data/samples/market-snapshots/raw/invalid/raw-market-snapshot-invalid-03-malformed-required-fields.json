@@ -1,0 +1,22 @@
+{
+  "raw_snapshot_id": "raw-snapshot-amxl-malformed",
+  "schema_version": "1.0.0",
+  "source": {
+    "name": "repository-local-sample",
+    "category": "local_sample",
+    "reference": "data/samples/market-snapshots/raw/invalid/raw-market-snapshot-invalid-03-malformed-required-fields.json"
+  },
+  "asset": {
+    "symbol": "AMXL",
+    "market": "BMV"
+  },
+  "observed_at": "2026/05/28 15:00",
+  "observed_values": {
+    "last_price": 18.42,
+    "currency": "MXN"
+  },
+  "provenance": {
+    "sample_origin": "Static repository sample for invalid local contract validation.",
+    "review_notes": "Demonstrates malformed timing and missing required observed volume."
+  }
+}

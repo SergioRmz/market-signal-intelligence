@@ -16,6 +16,9 @@ This foundation feature includes:
 - Allowed sources policy for financial and macroeconomic data.
 - Base `AssetEvent` JSON Schema contract.
 - Valid and invalid `AssetEvent` samples.
+- Initial equity-primary asset watchlist for allowed future monitoring scope.
+- Asset watchlist JSON Schema contract and samples.
+- Local raw and normalized market snapshot contracts and samples.
 - Lightweight local validation guidance.
 - Documentation-first repository structure.
 
@@ -58,3 +61,25 @@ Development follows specification-driven delivery:
 - `data/samples/asset-events/valid/`
 - `data/samples/asset-events/invalid/`
 - `docs/validation/event-contract-validation.md`
+- `data/watchlists/asset-watchlist.json`
+- `contracts/watchlists/asset-watchlist.schema.json`
+- `data/samples/watchlists/valid/`
+- `data/samples/watchlists/invalid/`
+- `docs/validation/asset-watchlist-validation.md`
+- `scripts/validation/check-asset-watchlist.sh`
+- `contracts/market-snapshots/raw-market-snapshot.schema.json`
+- `contracts/market-snapshots/normalized-market-snapshot.schema.json`
+- `data/samples/market-snapshots/raw/valid/`
+- `data/samples/market-snapshots/raw/invalid/`
+- `data/samples/market-snapshots/normalized/valid/`
+- `data/samples/market-snapshots/normalized/invalid/`
+- `docs/validation/market-snapshot-validation.md`
+- `scripts/validation/check-market-snapshots.sh`
+
+## Asset Watchlist
+
+The initial watchlist defines individual Mexican equity tickers allowed for future monitoring. `S&P/BMV IPC` may appear only as a reference benchmark entry, not as a replacement for the equity monitoring targets. The watchlist is a scope-control artifact and does not include live prices, rankings, recommendations, or trading signals.
+
+## Local Market Snapshots
+
+Local market snapshot artifacts provide static raw and normalized examples for future ingestion planning. Valid snapshots must use active canonical watchlist symbols, include `last_price`, `currency`, and `volume`, and preserve raw-to-normalized provenance through `raw_snapshot_id`. These artifacts are sample data only and do not fetch live prices, call external APIs, scrape websites, stream events, store data in a database, expose service endpoints, or perform AI analysis.

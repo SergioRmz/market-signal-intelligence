@@ -1,0 +1,6 @@
+{
+  "watchlist_id": "asset-watchlist",
+  "version": "2026.05.28-sample-invalid-missing-required",
+  "purpose": "Invalid sample missing a required effective date.",
+  "assets": []
+}

@@ -1,0 +1,117 @@
+{
+  "watchlist_id": "asset-watchlist",
+  "version": "2026.05.28-sample-valid",
+  "effective_date": "2026-05-28",
+  "purpose": "Valid sample for an equity-primary Mexican market monitoring allowlist with IPC as reference benchmark only.",
+  "assets": [
+    {
+      "symbol": "AMXL",
+      "display_name": "America Movil, S.A.B. de C.V.",
+      "market": {
+        "venue": "Bolsa Mexicana de Valores",
+        "country": "MX",
+        "exchange_symbol": "AMXL",
+        "index_membership": "S&P/BMV IPC constituent reference universe"
+      },
+      "asset_type": "equity",
+      "asset_role": "monitoring_target",
+      "currency": "MXN",
+      "active": true,
+      "traceability": {
+        "source_reference": "Public issuer/listing reference materials; no market values captured.",
+        "review_rationale": "Valid equity monitoring target example with clear BMV identifier."
+      }
+    },
+    {
+      "symbol": "CEMEXCPO",
+      "display_name": "Cemex, S.A.B. de C.V.",
+      "market": {
+        "venue": "Bolsa Mexicana de Valores",
+        "country": "MX",
+        "exchange_symbol": "CEMEXCPO",
+        "index_membership": "S&P/BMV IPC constituent reference universe"
+      },
+      "asset_type": "equity",
+      "asset_role": "monitoring_target",
+      "currency": "MXN",
+      "active": true,
+      "traceability": {
+        "source_reference": "Public issuer/listing reference materials; no market values captured.",
+        "review_rationale": "Valid equity monitoring target example with clear BMV identifier."
+      }
+    },
+    {
+      "symbol": "FEMSAUBD",
+      "display_name": "Fomento Economico Mexicano, S.A.B. de C.V.",
+      "market": {
+        "venue": "Bolsa Mexicana de Valores",
+        "country": "MX",
+        "exchange_symbol": "FEMSAUBD",
+        "index_membership": "S&P/BMV IPC constituent reference universe"
+      },
+      "asset_type": "equity",
+      "asset_role": "monitoring_target",
+      "currency": "MXN",
+      "active": true,
+      "traceability": {
+        "source_reference": "Public issuer/listing reference materials; no market values captured.",
+        "review_rationale": "Valid equity monitoring target example with clear BMV identifier."
+      }
+    },
+    {
+      "symbol": "GMEXICOB",
+      "display_name": "Grupo Mexico, S.A.B. de C.V.",
+      "market": {
+        "venue": "Bolsa Mexicana de Valores",
+        "country": "MX",
+        "exchange_symbol": "GMEXICOB",
+        "index_membership": "S&P/BMV IPC constituent reference universe"
+      },
+      "asset_type": "equity",
+      "asset_role": "monitoring_target",
+      "currency": "MXN",
+      "active": true,
+      "traceability": {
+        "source_reference": "Public issuer/listing reference materials; no market values captured.",
+        "review_rationale": "Valid equity monitoring target example with clear BMV identifier."
+      }
+    },
+    {
+      "symbol": "WALMEX",
+      "display_name": "Wal-Mart de Mexico, S.A.B. de C.V.",
+      "market": {
+        "venue": "Bolsa Mexicana de Valores",
+        "country": "MX",
+        "exchange_symbol": "WALMEX*",
+        "index_membership": "S&P/BMV IPC constituent reference universe"
+      },
+      "asset_type": "equity",
+      "asset_role": "monitoring_target",
+      "currency": "MXN",
+      "active": true,
+      "traceability": {
+        "source_reference": "Public issuer/listing reference materials; no market values captured.",
+        "review_rationale": "Valid equity monitoring target example with clear BMV identifier."
+      }
+    },
+    {
+      "symbol": "IPC",
+      "display_name": "S&P/BMV IPC",
+      "market": {
+        "venue": "Bolsa Mexicana de Valores",
+        "country": "MX",
+        "exchange_symbol": "IPC",
+        "index_family": "S&P/BMV indices"
+      },
+      "asset_type": "index",
+      "asset_role": "reference_benchmark",
+      "currency": "MXN",
+      "active": true,
+      "notes": "Benchmark only; not a primary monitoring target.",
+      "traceability": {
+        "source_reference": "Public IPC index reference materials; no market values captured.",
+        "review_rationale": "Valid reference benchmark example."
+      }
+    }
+  ]
+}

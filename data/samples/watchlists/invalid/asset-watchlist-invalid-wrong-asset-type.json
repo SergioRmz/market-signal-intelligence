@@ -1,0 +1,25 @@
+{
+  "watchlist_id": "asset-watchlist",
+  "version": "2026.05.28-sample-invalid-wrong-asset-type",
+  "effective_date": "2026-05-28",
+  "purpose": "Invalid sample using an unsupported asset type for a primary monitoring target.",
+  "assets": [
+    {
+      "symbol": "AMXL",
+      "display_name": "America Movil, S.A.B. de C.V.",
+      "market": {
+        "venue": "Bolsa Mexicana de Valores",
+        "country": "MX",
+        "exchange_symbol": "AMXL"
+      },
+      "asset_type": "index",
+      "asset_role": "monitoring_target",
+      "currency": "MXN",
+      "active": true,
+      "traceability": {
+        "source_reference": "Public issuer/listing reference materials; no market values captured.",
+        "review_rationale": "Invalid example for asset type and role consistency validation."
+      }
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bmv-signal-intelligence.local/contracts/asset-watchlist.schema.json",
+  "title": "Asset Watchlist",
+  "description": "Design contract for the equity-primary Mexican market asset watchlist artifact.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["watchlist_id", "version", "effective_date", "purpose", "assets"],
+  "properties": {
+    "watchlist_id": { "type": "string", "const": "asset-watchlist" },
+    "version": { "type": "string", "minLength": 1 },
+    "effective_date": { "type": "string", "format": "date" },
+    "purpose": { "type": "string", "minLength": 1 },
+    "assets": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 15,
+      "contains": {
+        "type": "object",
+        "required": ["asset_type", "asset_role", "active"],
+        "properties": {
+          "asset_type": { "const": "equity" },
+          "asset_role": { "const": "monitoring_target" },
+          "active": { "const": true }
+        }
+      },
+      "minContains": 5,
+      "items": { "$ref": "#/$defs/watchlistEntry" }
+    }
+  },
+  "$defs": {
+    "watchlistEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["symbol", "display_name", "market", "asset_type", "asset_role", "currency", "active", "traceability"],
+      "properties": {
+        "symbol": { "type": "string", "pattern": "^[A-Z0-9]+$" },
+        "display_name": { "type": "string", "minLength": 1 },
+        "market": { "$ref": "#/$defs/marketMetadata" },
+        "asset_type": { "type": "string", "enum": ["equity", "index"] },
+        "asset_role": { "type": "string", "enum": ["monitoring_target", "reference_benchmark"] },
+        "currency": { "type": "string", "const": "MXN" },
+        "active": { "type": "boolean" },
+        "notes": { "type": "string" },
+        "traceability": { "$ref": "#/$defs/traceabilityContext" }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "asset_role": { "const": "monitoring_target" } } },
+          "then": { "properties": { "asset_type": { "const": "equity" } } }
+        },
+        {
+          "if": { "properties": { "asset_type": { "const": "index" } } },
+          "then": {
+            "properties": {
+              "symbol": { "const": "IPC" },
+              "display_name": { "const": "S&P/BMV IPC" },
+              "asset_role": { "const": "reference_benchmark" }
+            }
+          }
+        }
+      ]
+    },
+    "marketMetadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["venue", "country"],
+      "properties": {
+        "venue": { "type": "string", "minLength": 1 },
+        "country": { "type": "string", "minLength": 1 },
+        "exchange_symbol": { "type": "string", "minLength": 1 },
+        "index_membership": { "type": "string" },
+        "index_family": { "type": "string" }
+      }
+    },
+    "traceabilityContext": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_reference", "review_rationale"],
+      "properties": {
+        "source_reference": { "type": "string", "minLength": 1 },
+        "review_rationale": { "type": "string", "minLength": 1 },
+        "reviewed_by": { "type": "string" },
+        "reviewed_at": { "type": "string", "format": "date" }
+      }
+    }
+  }
+}

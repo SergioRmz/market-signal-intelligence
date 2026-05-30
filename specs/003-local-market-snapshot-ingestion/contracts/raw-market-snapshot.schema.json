@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bmv-signal-intelligence.local/specs/003/raw-market-snapshot.schema.json",
+  "title": "Raw Market Snapshot",
+  "description": "Planning contract for source-shaped local market snapshot samples.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "raw_snapshot_id",
+    "schema_version",
+    "source",
+    "asset",
+    "observed_at",
+    "observed_values",
+    "provenance"
+  ],
+  "properties": {
+    "raw_snapshot_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "schema_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source": {
+      "$ref": "#/$defs/sourceContext"
+    },
+    "asset": {
+      "$ref": "#/$defs/assetReference"
+    },
+    "observed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "observed_values": {
+      "$ref": "#/$defs/observedValues"
+    },
+    "provenance": {
+      "$ref": "#/$defs/provenance"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "$defs": {
+    "sourceContext": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "category"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "category": {
+          "type": "string",
+          "enum": ["local_sample"]
+        },
+        "reference": {
+          "type": "string"
+        }
+      }
+    },
+    "assetReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["symbol", "market"],
+      "properties": {
+        "symbol": {
+          "type": "string",
+          "pattern": "^[A-Z0-9]+$"
+        },
+        "market": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "observedValues": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["last_price", "currency", "volume"],
+      "properties": {
+        "last_price": {
+          "type": "number",
+          "minimum": 0
+        },
+        "currency": {
+          "type": "string",
+          "const": "MXN"
+        },
+        "volume": {
+          "type": "number",
+          "minimum": 0
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sample_origin", "review_notes"],
+      "properties": {
+        "sample_origin": {
+          "type": "string",
+          "minLength": 1
+        },
+        "review_notes": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}
