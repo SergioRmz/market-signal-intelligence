@@ -70,6 +70,7 @@ As a reviewer, I need concise documentation of the initial source's limitations,
 
 1. **Given** the source documentation, **When** a maintainer reviews allowed usage, **Then** they can identify the single supported source, its limitations, and the exact constraints for non-advisory, non-scheduled, non-scraping use.
 2. **Given** a proposed change that adds another provider or production scheduler, **When** the feature scope is reviewed, **Then** the change is rejected as outside this feature.
+3. **Given** the adapter changes project-wide usage, validation, scope, or agent guidance, **When** the feature is completed, **Then** the relevant project documentation such as `README.md` or `AGENTS.md` is updated; otherwise the review documents that no project-wide documentation change was needed.
 
 ### Edge Cases
 
@@ -81,6 +82,7 @@ As a reviewer, I need concise documentation of the initial source's limitations,
 - What happens when the source returns a successful status but the payload lacks required market observation fields?
 - What happens when the source payload contains extra fields, advisory wording, ratings, target prices, or trading signals?
 - What happens when source metadata is incomplete, such as missing retrieval timestamp, source name, or source response status?
+- What happens when the source adapter introduces project-wide usage or agent guidance that is not yet reflected in `README.md` or `AGENTS.md`?
 
 ## Requirements *(mandatory)*
 
@@ -103,9 +105,11 @@ As a reviewer, I need concise documentation of the initial source's limitations,
 - **FR-015**: The feature MUST provide deterministic fixture-backed or test-backed scenarios for one successful fetch and for each expected failure class: timeout, rate limited response, ticker not found, invalid response shape, unsupported ticker, and inactive ticker.
 - **FR-016**: The feature MUST document the initial source's usage constraints, limitations, attribution or provenance expectations, expected failure modes, and replacement boundary.
 - **FR-017**: The feature MUST update governed artifact traceability so any source adapter boundary, source documentation, fixtures, validation evidence, and test artifacts are discoverable by maintainers.
-- **FR-018**: The feature MUST NOT add Kafka producers or consumers, FastAPI endpoints, database persistence, AWS resources, dashboard work, AI analysis, RAG workflows, autonomous agents, multiple source providers, production schedulers, bulk ingestion, or aggressive scraping.
-- **FR-019**: The feature MUST NOT produce trading signals, buy/sell/hold language, ratings, rankings, price targets, portfolio allocation guidance, investment recommendations, or performance forecasts.
-- **FR-020**: The feature MUST keep all market data content educational and technical, and any reviewer-facing documentation MUST reinforce that snapshots are not investment advice.
+- **FR-018**: Before completion, the feature MUST review project documentation, including `README.md` and `AGENTS.md`, and update it if the adapter introduces project-wide usage instructions, validation workflow changes, scope boundaries, or agent operating guidance not already covered.
+- **FR-019**: If project documentation does not require updates, the feature MUST document that review outcome in feature-specific completion evidence.
+- **FR-020**: The feature MUST NOT add Kafka producers or consumers, FastAPI endpoints, database persistence, AWS resources, dashboard work, AI analysis, RAG workflows, autonomous agents, multiple source providers, production schedulers, bulk ingestion, or aggressive scraping.
+- **FR-021**: The feature MUST NOT produce trading signals, buy/sell/hold language, ratings, rankings, price targets, portfolio allocation guidance, investment recommendations, or performance forecasts.
+- **FR-022**: The feature MUST keep all market data content educational and technical, and any reviewer-facing documentation MUST reinforce that snapshots are not investment advice.
 
 ### Key Entities *(include if feature involves data)*
 
@@ -127,7 +131,8 @@ As a reviewer, I need concise documentation of the initial source's limitations,
 - **SC-005**: A contributor can run deterministic success and failure checks from a clean repository checkout in 10 minutes or less without production scheduling, databases, event brokers, cloud resources, dashboards, or AI tools.
 - **SC-006**: 0 feature deliverables change the existing raw or normalized market snapshot contract boundaries unless a separate governed contract-change task explicitly approves it.
 - **SC-007**: 0 feature deliverables add Kafka, FastAPI endpoints, database persistence, AWS resources, dashboard behavior, AI analysis, trading signals, ratings, targets, recommendations, multiple providers, or aggressive scraping.
-- **SC-008**: At least 90% of reviewers can explain the adapter boundary, source limitations, watchlist gate, and raw/normalized preservation model within 10 minutes using repository-local artifacts.
+- **SC-008**: Completion review confirms `README.md` and `AGENTS.md` were either updated with required project-wide guidance or explicitly documented as not needing changes.
+- **SC-009**: At least 90% of reviewers can explain the adapter boundary, source limitations, watchlist gate, and raw/normalized preservation model within 10 minutes using repository-local artifacts.
 
 ## Assumptions
 
@@ -136,3 +141,4 @@ As a reviewer, I need concise documentation of the initial source's limitations,
 - Existing watchlist and market snapshot contracts remain the internal source of truth; this feature adapts external source data to those contracts rather than redefining them.
 - Timeout, rate-limit, not-found, invalid-shape, unsupported-ticker, and inactive-ticker outcomes are sufficient expected failure categories for the first controlled source integration.
 - Market values retrieved or represented through fixtures are technical observations only and are not recommendations, ratings, signals, targets, or investment advice.
+- Project-wide documentation updates are conditional; they are required only when this feature adds guidance that maintainers, contributors, or agents need outside feature-specific artifacts.

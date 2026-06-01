@@ -32,4 +32,5 @@
 ## Notes
 
 - Validation iteration 1 passed all checklist items.
+- Validation iteration 2 passed after adding conditional `README.md` and `AGENTS.md` review requirements.
 - The specification retains HTTP timeout and HTTP source language because the feature request explicitly requires a single external or controlled HTTP source and explicit HTTP timeout handling; no language, framework, endpoint, database, cloud, or deployment implementation details are specified.
