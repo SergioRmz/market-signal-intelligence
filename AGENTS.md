@@ -1,7 +1,7 @@
 <!-- SPECKIT START -->
 For additional context about technologies to be used, project structure,
 shell commands, and other important information, read the current plan:
-specs/003-local-market-snapshot-ingestion/plan.md
+specs/004-market-source-adapter/plan.md
 <!-- SPECKIT END -->
 
 # Agent Instructions
