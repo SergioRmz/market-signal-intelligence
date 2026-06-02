@@ -42,6 +42,10 @@
           "type": "string",
           "minLength": 1
         },
+        "requested_symbol": {
+          "type": "string",
+          "minLength": 1
+        },
         "endpoint_label": {
           "type": "string",
           "minLength": 1

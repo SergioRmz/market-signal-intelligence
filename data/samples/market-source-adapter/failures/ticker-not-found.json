@@ -1,0 +1,24 @@
+{
+  "attempt_id": "source-attempt-amxl-not-found-fixture",
+  "requested_symbol": "AMXL",
+  "canonical_symbol": "AMXL",
+  "timeout_seconds": 5,
+  "source_metadata": {
+    "source_name": "controlled-http-source-adapter",
+    "requested_symbol": "AMXL",
+    "endpoint_label": "controlled-http-endpoint",
+    "requested_at": "2026-06-01T15:00:00Z",
+    "retrieved_at": "2026-06-01T15:00:01Z",
+    "response_status": 404,
+    "classification": "ticker_not_found",
+    "attribution": "Controlled HTTP source fixture for deterministic adapter validation."
+  },
+  "outcome": "failed",
+  "failure_class": "ticker_not_found",
+  "failure_message": "Controlled source reported ticker not found.",
+  "raw_source_payload": {
+    "status": "not_found",
+    "symbol": "AMXL",
+    "message": "Ticker not found by controlled fixture scenario."
+  }
+}

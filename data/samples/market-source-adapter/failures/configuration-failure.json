@@ -1,0 +1,17 @@
+{
+  "attempt_id": "source-attempt-amxl-configuration-fixture",
+  "requested_symbol": "AMXL",
+  "canonical_symbol": "AMXL",
+  "timeout_seconds": 5,
+  "source_metadata": {
+    "source_name": "controlled-http-source-adapter",
+    "requested_symbol": "AMXL",
+    "endpoint_label": "controlled-http-endpoint",
+    "requested_at": "2026-06-01T15:00:00Z",
+    "classification": "configuration_failure",
+    "attribution": "Controlled HTTP source fixture for deterministic adapter validation."
+  },
+  "outcome": "failed",
+  "failure_class": "configuration_failure",
+  "failure_message": "Required local credential environment configuration is missing."
+}

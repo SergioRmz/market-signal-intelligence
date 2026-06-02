@@ -19,6 +19,7 @@ This foundation feature includes:
 - Initial equity-primary asset watchlist for allowed future monitoring scope.
 - Asset watchlist JSON Schema contract and samples.
 - Local raw and normalized market snapshot contracts and samples.
+- First controlled market source adapter boundary with deterministic fixtures and local validation.
 - Lightweight local validation guidance.
 - Documentation-first repository structure.
 
@@ -27,6 +28,7 @@ This foundation feature includes:
 This feature does not implement:
 
 - Data ingestion logic.
+- Production market data ingestion, scheduling, or bulk harvesting.
 - Kafka or event broker topology.
 - AWS infrastructure or deployment automation.
 - AI analysis, RAG, autonomous agents, or prompt orchestration.
@@ -75,6 +77,12 @@ Development follows specification-driven delivery:
 - `data/samples/market-snapshots/normalized/invalid/`
 - `docs/validation/market-snapshot-validation.md`
 - `scripts/validation/check-market-snapshots.sh`
+- `src/market_signal_intelligence/sources/`
+- `tests/fixtures/market-source-adapter/`
+- `data/samples/market-source-adapter/`
+- `docs/sources/market-source-adapter.md`
+- `docs/validation/market-source-adapter-validation.md`
+- `scripts/validation/check-market-source-adapter.sh`
 
 ## Asset Watchlist
 
@@ -83,3 +91,7 @@ The initial watchlist defines individual Mexican equity tickers allowed for futu
 ## Local Market Snapshots
 
 Local market snapshot artifacts provide static raw and normalized examples for future ingestion planning. Valid snapshots must use active canonical watchlist symbols, include `last_price`, `currency`, and `volume`, and preserve raw-to-normalized provenance through `raw_snapshot_id`. These artifacts are sample data only and do not fetch live prices, call external APIs, scrape websites, stream events, store data in a database, expose service endpoints, or perform AI analysis.
+
+## Market Source Adapter
+
+The first market source adapter defines a narrow controlled HTTP boundary for one snapshot request at a time. It is BMV-first but not BMV-only, accepts only active canonical watchlist symbols, preserves non-secret source evidence, adapts successful responses to the existing raw snapshot shape, and reuses existing snapshot validation. It does not add production ingestion, schedulers, service endpoints, persistence, multiple providers, scraping, advisory outputs, or normalized provider-specific schemas.

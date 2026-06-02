@@ -1,0 +1,17 @@
+{
+  "attempt_id": "source-attempt-amxl-timeout-fixture",
+  "requested_symbol": "AMXL",
+  "canonical_symbol": "AMXL",
+  "timeout_seconds": 5,
+  "source_metadata": {
+    "source_name": "controlled-http-source-adapter",
+    "requested_symbol": "AMXL",
+    "endpoint_label": "controlled-http-endpoint",
+    "requested_at": "2026-06-01T15:00:00Z",
+    "classification": "timeout",
+    "attribution": "Controlled HTTP source fixture for deterministic adapter validation."
+  },
+  "outcome": "failed",
+  "failure_class": "timeout",
+  "failure_message": "Controlled source request exceeded the configured timeout."
+}

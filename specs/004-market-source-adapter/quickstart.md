@@ -15,7 +15,7 @@ Validate the first controlled market source adapter from a clean checkout withou
 ## Expected Artifacts After Implementation
 
 - `src/market_signal_intelligence/sources/` contains the adapter boundary and controlled HTTP implementation.
-- `tests/unit/test_market_source_adapter.py` covers success and failure classes.
+- `tests/unit/`, `tests/integration/`, and `tests/contract/` cover success paths, failure classes, contract boundaries, documentation guardrails, and snapshot compatibility.
 - `tests/fixtures/market-source-adapter/` contains deterministic provider responses.
 - `data/samples/market-source-adapter/` contains preserved payload, adapted raw snapshot, and failure evidence samples.
 - `docs/sources/market-source-adapter.md` documents source limitations and usage constraints.
@@ -79,6 +79,42 @@ This feature must not add:
 - Production scheduler.
 - Aggressive scraping.
 
+## README And AGENTS Review
+
+`README.md` was updated with the adapter artifact paths and a concise market source adapter section because this feature adds a limited repository-local adapter boundary. `AGENTS.md` was updated to clarify that feature 004 authorizes only the controlled adapter boundary, not production ingestion services, schedulers, persistence, service endpoints, multiple providers, or cloud resources.
+
+## Validation Evidence
+
+Final local validation from repository root:
+
+```bash
+python3 -m unittest discover tests
+```
+
+Observed result: `Ran 18 tests` and `OK`.
+
+```bash
+scripts/validation/check-market-source-adapter.sh
+```
+
+Observed result: `PASS: Market source adapter artifacts validated`.
+
+```bash
+scripts/validation/check-market-snapshots.sh
+```
+
+Observed result: `PASS: Local market snapshot contracts and samples validated`.
+
+```bash
+scripts/validation/check-foundation-artifacts.sh
+```
+
+Observed result: `PASS foundation artifacts and samples validated`.
+
+## Scope Review Result
+
+Completion review confirms this feature added no Kafka topology, FastAPI endpoints, database persistence, AWS resources, dashboard behavior, AI analysis, RAG workflows, autonomous agents, production scheduler, bulk ingestion, aggressive scraping, multiple providers, trading signals, ratings, rankings, target prices, recommendations, or performance forecasts.
+
 ## Expected Completion Signal
 
-Planning is complete when `plan.md`, `research.md`, `data-model.md`, `contracts/`, and this quickstart are present and the constitution checks pass before task generation.
+Implementation is complete when adapter tests pass, adapter validation passes, existing market snapshot validation passes, task checkboxes are updated, and the validation evidence above is included in review notes.

@@ -14,11 +14,11 @@
 
 **Purpose**: Create the adapter implementation, test, fixture, sample, and documentation locations used by all stories.
 
-- [ ] T001 Create source adapter package directories in `src/market_signal_intelligence/sources/` and `src/market_signal_intelligence/__init__.py`
-- [ ] T002 Create test directories in `tests/unit/`, `tests/integration/`, `tests/contract/`, and `tests/fixtures/market-source-adapter/`
-- [ ] T003 Create adapter sample directories in `data/samples/market-source-adapter/source-payloads/`, `data/samples/market-source-adapter/raw-snapshots/`, and `data/samples/market-source-adapter/failures/`
-- [ ] T004 [P] Create source documentation directory in `docs/sources/`
-- [ ] T005 [P] Create adapter validation script placeholder in `scripts/validation/check-market-source-adapter.sh`
+- [X] T001 Create source adapter package directories in `src/market_signal_intelligence/sources/` and `src/market_signal_intelligence/__init__.py`
+- [X] T002 Create test directories in `tests/unit/`, `tests/integration/`, `tests/contract/`, and `tests/fixtures/market-source-adapter/`
+- [X] T003 Create adapter sample directories in `data/samples/market-source-adapter/source-payloads/`, `data/samples/market-source-adapter/raw-snapshots/`, and `data/samples/market-source-adapter/failures/`
+- [X] T004 [P] Create source documentation directory in `docs/sources/`
+- [X] T005 [P] Create adapter validation script placeholder in `scripts/validation/check-market-source-adapter.sh`
 
 ---
 
@@ -28,15 +28,15 @@
 
 **CRITICAL**: No user story work can begin until this phase is complete.
 
-- [ ] T006 Define package exports in `src/market_signal_intelligence/sources/__init__.py`
-- [ ] T007 Implement adapter data models and failure classification enum in `src/market_signal_intelligence/sources/models.py`
-- [ ] T008 Implement local environment configuration loader with 5-second default timeout in `src/market_signal_intelligence/sources/adapter.py`
-- [ ] T009 [P] Add adapter fetch result contract test in `tests/contract/test_adapter_fetch_result_contract.py`
-- [ ] T010 [P] Add `MSA-REQ-001` through `MSA-REQ-012` source adapter rule IDs to `docs/validation/rule-ids.md`
-- [ ] T011 Add adapter artifact paths and minimum review criteria to `docs/foundation/artifact-manifest.md`
-- [ ] T012 Create adapter validation guide with local command, rule IDs, evidence format, credential handling, and guardrails in `docs/validation/market-source-adapter-validation.md`
-- [ ] T013 Implement required path, JSON parse, no-secret, and no-prohibited-content checks in `scripts/validation/check-market-source-adapter.sh`
-- [ ] T014 Make `scripts/validation/check-market-source-adapter.sh` executable and document expected PASS output in `docs/validation/market-source-adapter-validation.md`
+- [X] T006 Define package exports in `src/market_signal_intelligence/sources/__init__.py`
+- [X] T007 Implement adapter data models and failure classification enum in `src/market_signal_intelligence/sources/models.py`
+- [X] T008 Implement local environment configuration loader with 5-second default timeout in `src/market_signal_intelligence/sources/adapter.py`
+- [X] T009 [P] Add adapter fetch result contract test in `tests/contract/test_adapter_fetch_result_contract.py`
+- [X] T010 [P] Add `MSA-REQ-001` through `MSA-REQ-012` source adapter rule IDs to `docs/validation/rule-ids.md`
+- [X] T011 Add adapter artifact paths and minimum review criteria to `docs/foundation/artifact-manifest.md`
+- [X] T012 Create adapter validation guide with local command, rule IDs, evidence format, credential handling, and guardrails in `docs/validation/market-source-adapter-validation.md`
+- [X] T013 Implement required path, JSON parse, no-secret, and no-prohibited-content checks in `scripts/validation/check-market-source-adapter.sh`
+- [X] T014 Make `scripts/validation/check-market-source-adapter.sh` executable and document expected PASS output in `docs/validation/market-source-adapter-validation.md`
 
 **Checkpoint**: Adapter contracts, shared models, rule IDs, and validation baseline are ready.
 
@@ -50,18 +50,18 @@
 
 ### Tests for User Story 1
 
-- [ ] T015 [P] [US1] Create successful active equity source fixture in `tests/fixtures/market-source-adapter/success-active-equity.json`
-- [ ] T016 [P] [US1] Add unit test for active watchlist ticker acceptance in `tests/unit/test_market_source_adapter_success.py`
-- [ ] T017 [P] [US1] Add integration test for adapted raw snapshot validation in `tests/integration/test_market_source_adapter_success_flow.py`
+- [X] T015 [P] [US1] Create successful active equity source fixture in `tests/fixtures/market-source-adapter/success-active-equity.json`
+- [X] T016 [P] [US1] Add unit test for active watchlist ticker acceptance in `tests/unit/test_market_source_adapter_success.py`
+- [X] T017 [P] [US1] Add integration test for adapted raw snapshot validation in `tests/integration/test_market_source_adapter_success_flow.py`
 
 ### Implementation for User Story 1
 
-- [ ] T018 [US1] Implement active canonical watchlist lookup in `src/market_signal_intelligence/sources/adapter.py`
-- [ ] T019 [US1] Implement controlled HTTP fetch wrapper with configurable timeout in `src/market_signal_intelligence/sources/controlled_http.py`
-- [ ] T020 [US1] Implement successful provider payload adaptation to existing raw market snapshot shape in `src/market_signal_intelligence/sources/adapter.py`
-- [ ] T021 [US1] Add preserved successful source payload sample in `data/samples/market-source-adapter/source-payloads/success-active-equity.json`
-- [ ] T022 [US1] Add accepted adapted raw snapshot sample in `data/samples/market-source-adapter/raw-snapshots/success-active-equity-raw-snapshot.json`
-- [ ] T023 [US1] Extend `scripts/validation/check-market-source-adapter.sh` to validate successful fixture count, source metadata, raw payload preservation, and adapted raw snapshot sample
+- [X] T018 [US1] Implement active canonical watchlist lookup in `src/market_signal_intelligence/sources/adapter.py`
+- [X] T019 [US1] Implement controlled HTTP fetch wrapper with configurable timeout in `src/market_signal_intelligence/sources/controlled_http.py`
+- [X] T020 [US1] Implement successful provider payload adaptation to existing raw market snapshot shape in `src/market_signal_intelligence/sources/adapter.py`
+- [X] T021 [US1] Add preserved successful source payload sample in `data/samples/market-source-adapter/source-payloads/success-active-equity.json`
+- [X] T022 [US1] Add accepted adapted raw snapshot sample in `data/samples/market-source-adapter/raw-snapshots/success-active-equity-raw-snapshot.json`
+- [X] T023 [US1] Extend `scripts/validation/check-market-source-adapter.sh` to validate successful fixture count, source metadata, raw payload preservation, and adapted raw snapshot sample
 
 **Checkpoint**: US1 is independently testable as the MVP adapter fetch path.
 
@@ -75,16 +75,16 @@
 
 ### Tests for User Story 2
 
-- [ ] T024 [P] [US2] Add integration test for existing market snapshot validation reuse in `tests/integration/test_market_source_adapter_snapshot_compatibility.py`
-- [ ] T025 [P] [US2] Add test that rejects provider-specific normalized schema files in `tests/contract/test_no_provider_normalized_schema.py`
+- [X] T024 [P] [US2] Add integration test for existing market snapshot validation reuse in `tests/integration/test_market_source_adapter_snapshot_compatibility.py`
+- [X] T025 [P] [US2] Add test that rejects provider-specific normalized schema files in `tests/contract/test_no_provider_normalized_schema.py`
 
 ### Implementation for User Story 2
 
-- [ ] T026 [US2] Implement raw snapshot compatibility helper that invokes existing validation expectations in `src/market_signal_intelligence/sources/adapter.py`
-- [ ] T027 [US2] Extend adapter provenance fields to link adapted raw snapshots to source attempt and payload evidence in `src/market_signal_intelligence/sources/adapter.py`
-- [ ] T028 [US2] Extend `scripts/validation/check-market-source-adapter.sh` to call `scripts/validation/check-market-snapshots.sh` after adapter-specific validation
-- [ ] T029 [US2] Add validation check rejecting provider-specific normalized schema artifacts under `contracts/` and `specs/004-market-source-adapter/contracts/` in `scripts/validation/check-market-source-adapter.sh`
-- [ ] T030 [US2] Document raw-primary output and existing 003 normalization ownership in `docs/validation/market-source-adapter-validation.md`
+- [X] T026 [US2] Implement raw snapshot compatibility helper that invokes existing validation expectations in `src/market_signal_intelligence/sources/adapter.py`
+- [X] T027 [US2] Extend adapter provenance fields to link adapted raw snapshots to source attempt and payload evidence in `src/market_signal_intelligence/sources/adapter.py`
+- [X] T028 [US2] Extend `scripts/validation/check-market-source-adapter.sh` to call `scripts/validation/check-market-snapshots.sh` after adapter-specific validation
+- [X] T029 [US2] Add validation check rejecting provider-specific normalized schema artifacts under `contracts/` and `specs/004-market-source-adapter/contracts/` in `scripts/validation/check-market-source-adapter.sh`
+- [X] T030 [US2] Document raw-primary output and existing 003 normalization ownership in `docs/validation/market-source-adapter-validation.md`
 
 **Checkpoint**: US2 confirms stable internal contracts and existing normalization ownership.
 
@@ -98,21 +98,21 @@
 
 ### Tests for User Story 3
 
-- [ ] T031 [P] [US3] Create rate-limited source fixture in `tests/fixtures/market-source-adapter/failure-rate-limited.json`
-- [ ] T032 [P] [US3] Create ticker-not-found source fixture in `tests/fixtures/market-source-adapter/failure-ticker-not-found.json`
-- [ ] T033 [P] [US3] Create invalid response shape fixture in `tests/fixtures/market-source-adapter/failure-invalid-shape.json`
-- [ ] T034 [P] [US3] Add unit tests for timeout and rate-limited classification in `tests/unit/test_market_source_adapter_failures.py`
-- [ ] T035 [US3] Add unit tests for ticker-not-found and invalid-shape classification in `tests/unit/test_market_source_adapter_failures.py`
-- [ ] T036 [US3] Add unit tests for unsupported, inactive, and missing-credential classification in `tests/unit/test_market_source_adapter_failures.py`
+- [X] T031 [P] [US3] Create rate-limited source fixture in `tests/fixtures/market-source-adapter/failure-rate-limited.json`
+- [X] T032 [P] [US3] Create ticker-not-found source fixture in `tests/fixtures/market-source-adapter/failure-ticker-not-found.json`
+- [X] T033 [P] [US3] Create invalid response shape fixture in `tests/fixtures/market-source-adapter/failure-invalid-shape.json`
+- [X] T034 [P] [US3] Add unit tests for timeout and rate-limited classification in `tests/unit/test_market_source_adapter_failures.py`
+- [X] T035 [US3] Add unit tests for ticker-not-found and invalid-shape classification in `tests/unit/test_market_source_adapter_failures.py`
+- [X] T036 [US3] Add unit tests for unsupported, inactive, and missing-credential classification in `tests/unit/test_market_source_adapter_failures.py`
 
 ### Implementation for User Story 3
 
-- [ ] T037 [US3] Implement timeout and rate-limited failure classification in `src/market_signal_intelligence/sources/controlled_http.py`
-- [ ] T038 [US3] Implement ticker-not-found and invalid-response-shape classification in `src/market_signal_intelligence/sources/adapter.py`
-- [ ] T039 [US3] Implement unsupported ticker, inactive ticker, and missing-credential configuration failure classification in `src/market_signal_intelligence/sources/adapter.py`
-- [ ] T040 [US3] Add failure evidence samples in `data/samples/market-source-adapter/failures/`
-- [ ] T041 [US3] Add adapter invalid sample mappings to `docs/validation/sample-rule-mapping.md`
-- [ ] T042 [US3] Extend `scripts/validation/check-market-source-adapter.sh` to verify each failure class and rule mapping
+- [X] T037 [US3] Implement timeout and rate-limited failure classification in `src/market_signal_intelligence/sources/controlled_http.py`
+- [X] T038 [US3] Implement ticker-not-found and invalid-response-shape classification in `src/market_signal_intelligence/sources/adapter.py`
+- [X] T039 [US3] Implement unsupported ticker, inactive ticker, and missing-credential configuration failure classification in `src/market_signal_intelligence/sources/adapter.py`
+- [X] T040 [US3] Add failure evidence samples in `data/samples/market-source-adapter/failures/`
+- [X] T041 [US3] Add adapter invalid sample mappings to `docs/validation/sample-rule-mapping.md`
+- [X] T042 [US3] Extend `scripts/validation/check-market-source-adapter.sh` to verify each failure class and rule mapping
 
 **Checkpoint**: US3 failure scenarios are deterministic and independently reviewable.
 
@@ -126,16 +126,16 @@
 
 ### Tests for User Story 4
 
-- [ ] T043 [P] [US4] Add documentation guardrail test for prohibited provider, scheduler, advisory, and secret content in `tests/unit/test_market_source_adapter_documentation.py`
+- [X] T043 [P] [US4] Add documentation guardrail test for prohibited provider, scheduler, advisory, and secret content in `tests/unit/test_market_source_adapter_documentation.py`
 
 ### Implementation for User Story 4
 
-- [ ] T044 [US4] Create source limitations and usage constraints documentation in `docs/sources/market-source-adapter.md`
-- [ ] T045 [US4] Document BMV-first but not BMV-only adapter scope in `docs/sources/market-source-adapter.md`
-- [ ] T046 [US4] Document local credential configuration and no-secret evidence requirements in `docs/sources/market-source-adapter.md`
-- [ ] T047 [US4] Review `README.md` for project-wide adapter usage guidance and update it only if needed
-- [ ] T048 [US4] Review `AGENTS.md` for project-wide adapter agent guidance and update it only if needed
-- [ ] T049 [US4] Document README and AGENTS review outcome in `specs/004-market-source-adapter/quickstart.md`
+- [X] T044 [US4] Create source limitations and usage constraints documentation in `docs/sources/market-source-adapter.md`
+- [X] T045 [US4] Document BMV-first but not BMV-only adapter scope in `docs/sources/market-source-adapter.md`
+- [X] T046 [US4] Document local credential configuration and no-secret evidence requirements in `docs/sources/market-source-adapter.md`
+- [X] T047 [US4] Review `README.md` for project-wide adapter usage guidance and update it only if needed
+- [X] T048 [US4] Review `AGENTS.md` for project-wide adapter agent guidance and update it only if needed
+- [X] T049 [US4] Document README and AGENTS review outcome in `specs/004-market-source-adapter/quickstart.md`
 
 **Checkpoint**: US4 documentation explains source limits, usage constraints, and no-goals.
 
@@ -145,13 +145,13 @@
 
 **Purpose**: Final consistency, reproducibility evidence, and scope guardrail verification across all stories.
 
-- [ ] T050 [P] Cross-check adapter terminology across `specs/004-market-source-adapter/`, `docs/sources/market-source-adapter.md`, `docs/validation/market-source-adapter-validation.md`, and `src/market_signal_intelligence/sources/`
-- [ ] T051 [P] Verify all new adapter artifacts are listed in `docs/foundation/artifact-manifest.md` or justified by this task plan
-- [ ] T052 Run Python unit and integration tests from repository root with `python3 -m unittest discover tests`
-- [ ] T053 Run adapter validation from repository root with `scripts/validation/check-market-source-adapter.sh`
-- [ ] T054 Run existing market snapshot validation from repository root with `scripts/validation/check-market-snapshots.sh`
-- [ ] T055 Capture final validation evidence and command outputs in `specs/004-market-source-adapter/quickstart.md`
-- [ ] T056 Verify no Kafka, FastAPI endpoints, database persistence, AWS resources, dashboard work, AI analysis, multiple providers, scheduler, aggressive scraping, advisory language, ratings, targets, or recommendations were added and document result in `specs/004-market-source-adapter/quickstart.md`
+- [X] T050 [P] Cross-check adapter terminology across `specs/004-market-source-adapter/`, `docs/sources/market-source-adapter.md`, `docs/validation/market-source-adapter-validation.md`, and `src/market_signal_intelligence/sources/`
+- [X] T051 [P] Verify all new adapter artifacts are listed in `docs/foundation/artifact-manifest.md` or justified by this task plan
+- [X] T052 Run Python unit and integration tests from repository root with `python3 -m unittest discover tests`
+- [X] T053 Run adapter validation from repository root with `scripts/validation/check-market-source-adapter.sh`
+- [X] T054 Run existing market snapshot validation from repository root with `scripts/validation/check-market-snapshots.sh`
+- [X] T055 Capture final validation evidence and command outputs in `specs/004-market-source-adapter/quickstart.md`
+- [X] T056 Verify no Kafka, FastAPI endpoints, database persistence, AWS resources, dashboard work, AI analysis, multiple providers, scheduler, aggressive scraping, advisory language, ratings, targets, or recommendations were added and document result in `specs/004-market-source-adapter/quickstart.md`
 
 ---
 

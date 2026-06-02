@@ -1,0 +1,16 @@
+{
+  "attempt_id": "source-attempt-xyz-unsupported-fixture",
+  "requested_symbol": "XYZ",
+  "timeout_seconds": 5,
+  "source_metadata": {
+    "source_name": "controlled-http-source-adapter",
+    "requested_symbol": "XYZ",
+    "endpoint_label": "controlled-http-endpoint",
+    "requested_at": "2026-06-01T15:00:00Z",
+    "classification": "unsupported_ticker",
+    "attribution": "Controlled HTTP source fixture for deterministic adapter validation."
+  },
+  "outcome": "failed",
+  "failure_class": "unsupported_ticker",
+  "failure_message": "Ticker is not in the canonical active watchlist scope."
+}

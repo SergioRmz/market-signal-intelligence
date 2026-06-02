@@ -8,9 +8,9 @@ specs/004-market-source-adapter/plan.md
 
 ## Repository Scope
 
-This repository is the BMV Signal Intelligence Platform foundation. Work in this phase is limited to documentation, contracts, sample data, validation guidance, and repository scaffolding.
+This repository is the BMV Signal Intelligence Platform foundation. Work in this phase is limited to documentation, contracts, sample data, validation guidance, repository scaffolding, and the feature-004 controlled source adapter boundary authorized by `specs/004-market-source-adapter/plan.md`.
 
-Do not add runtime application behavior in this feature. Specifically, do not implement ingestion logic, Kafka topology, AWS deployment automation, AI analysis, RAG workflows, autonomous agents, or dashboard code.
+Do not add production runtime behavior in this feature. Specifically, do not implement ingestion services, Kafka topology, AWS deployment automation, AI analysis, RAG workflows, autonomous agents, dashboards, schedulers, persistence, multiple providers, or service endpoints.
 
 ## Required Reading Order
 
@@ -35,6 +35,7 @@ Do not add runtime application behavior in this feature. Specifically, do not im
 - Treat `contracts/market-snapshots/raw-market-snapshot.schema.json` and `contracts/market-snapshots/normalized-market-snapshot.schema.json` as the contract boundaries for future local market snapshot work.
 - Preserve the equity-primary watchlist rule: individual Mexican equities are monitoring targets; `S&P/BMV IPC` is reference benchmark context only.
 - Preserve the raw/normalized snapshot split and require active canonical watchlist symbols for valid snapshot samples.
+- Treat `src/market_signal_intelligence/sources/` as the limited controlled source adapter boundary for feature 004; keep it one-source, fixture-backed, non-scheduled, and raw-snapshot-primary.
 - Update validation evidence when contract or sample files change.
 - Keep scaffolding empty or documentation-only unless a future feature explicitly authorizes runtime code.
 
@@ -45,5 +46,7 @@ Do not add runtime application behavior in this feature. Specifically, do not im
 - Confirm local validation instructions in `docs/validation/event-contract-validation.md` remain reproducible from a clean clone.
 - Confirm local validation instructions in `docs/validation/asset-watchlist-validation.md` remain reproducible from a clean clone when watchlist artifacts change.
 - Confirm local validation instructions in `docs/validation/market-snapshot-validation.md` remain reproducible from a clean clone when snapshot artifacts change.
+- Confirm local validation instructions in `docs/validation/market-source-adapter-validation.md` remain reproducible from a clean clone when adapter artifacts change.
 - Run `scripts/validation/check-asset-watchlist.sh` when watchlist contracts, samples, validation docs, or watchlist data change.
 - Run `scripts/validation/check-market-snapshots.sh` when market snapshot contracts, samples, validation docs, or watchlist-gated snapshot behavior change.
+- Run `scripts/validation/check-market-source-adapter.sh` when source adapter code, fixtures, samples, validation docs, or adapter contract artifacts change.

@@ -1,0 +1,17 @@
+{
+  "attempt_id": "source-attempt-kofubl-inactive-fixture",
+  "requested_symbol": "KOFUBL",
+  "canonical_symbol": "KOFUBL",
+  "timeout_seconds": 5,
+  "source_metadata": {
+    "source_name": "controlled-http-source-adapter",
+    "requested_symbol": "KOFUBL",
+    "endpoint_label": "controlled-http-endpoint",
+    "requested_at": "2026-06-01T15:00:00Z",
+    "classification": "inactive_ticker",
+    "attribution": "Controlled HTTP source fixture for deterministic adapter validation."
+  },
+  "outcome": "failed",
+  "failure_class": "inactive_ticker",
+  "failure_message": "Ticker is present in the watchlist but inactive."
+}
