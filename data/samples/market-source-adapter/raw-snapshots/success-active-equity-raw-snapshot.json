@@ -1,0 +1,24 @@
+{
+  "raw_snapshot_id": "raw-adapter-amxl-20260601T150000Z",
+  "schema_version": "1.0.0",
+  "source": {
+    "name": "controlled-http-source-adapter",
+    "category": "local_sample",
+    "reference": "source-attempt-amxl-20260601T150000Z"
+  },
+  "asset": {
+    "symbol": "AMXL",
+    "market": "BMV"
+  },
+  "observed_at": "2026-06-01T15:00:00Z",
+  "observed_values": {
+    "last_price": 18.77,
+    "currency": "MXN",
+    "volume": 1250000
+  },
+  "provenance": {
+    "sample_origin": "Adapted from preserved controlled HTTP source payload fixture.",
+    "review_notes": "Adapter output uses the existing raw market snapshot contract; normalization remains owned by the 003 pipeline."
+  },
+  "notes": "Educational technical adapter sample; not investment advice."
+}

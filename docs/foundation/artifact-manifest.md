@@ -30,6 +30,16 @@ Define exact required artifact paths and minimum sections for the initial projec
 | `docs/validation/market-snapshot-validation.md` | Validation guide | Purpose, Local Commands, Rule IDs, Evidence Format, Failure Handling, Guardrails |
 | `scripts/validation/check-asset-watchlist.sh` | Local validation script | Path checks, JSON parse checks, equity-primary constraints, sample mappings, non-advisory guardrails |
 | `scripts/validation/check-market-snapshots.sh` | Local validation script | Path checks, JSON parse checks, raw/normalized separation, active watchlist checks, provenance links, sample mappings, non-advisory guardrails |
+| `src/market_signal_intelligence/sources/` | Source adapter boundary | Controlled HTTP adapter configuration, fetch result models, failure classification, raw snapshot compatibility helper |
+| `specs/004-market-source-adapter/contracts/adapter-fetch-result.schema.json` | Planning contract | Adapter fetch attempt identity, source metadata, success output, failure classifications |
+| `specs/004-market-source-adapter/contracts/market-source-adapter-boundary.md` | Boundary contract | Adapter responsibility, excluded behavior, raw/normalized ownership, replacement constraints |
+| `tests/fixtures/market-source-adapter/` | Fixtures | Deterministic success, rate-limited, ticker-not-found, and invalid-shape source payloads |
+| `data/samples/market-source-adapter/source-payloads/` | Samples | Preserved source payload evidence for accepted adapter scenarios |
+| `data/samples/market-source-adapter/raw-snapshots/` | Samples | Adapter-produced raw snapshot samples compatible with existing raw snapshot validation |
+| `data/samples/market-source-adapter/failures/` | Samples | Failure evidence for timeout, rate-limited, ticker-not-found, invalid-shape, unsupported, inactive, and configuration-failure classes |
+| `docs/sources/market-source-adapter.md` | Source documentation | Purpose, supported source mode, BMV-first scope, credential posture, failure modes, exclusions |
+| `docs/validation/market-source-adapter-validation.md` | Validation guide | Purpose, Local Commands, Rule IDs, Evidence Format, Credential Handling, Guardrails |
+| `scripts/validation/check-market-source-adapter.sh` | Local validation script | Path checks, JSON parse checks, no-secret checks, fixture/failure validation, raw snapshot compatibility, normalized-schema guardrail, existing snapshot validation reuse |
 
 ## Review Rules
 
@@ -39,3 +49,4 @@ Define exact required artifact paths and minimum sections for the initial projec
 - Runtime implementation files are not permitted in this foundation feature.
 - Watchlist artifacts must not include live prices, ratings, rankings, recommendations, target prices, portfolio guidance, or performance forecasts.
 - Market snapshot artifacts must remain static local samples and must not add external APIs, scraping, Kafka, database persistence, FastAPI endpoints, AWS automation, dashboard code, AI analysis, or live-feed behavior.
+- Market source adapter artifacts must remain limited to one controlled HTTP source boundary, deterministic fixtures, local validation, and educational technical evidence; they must not add production ingestion, schedulers, multiple providers, persistence, service endpoints, advisory outputs, or cloud resources.

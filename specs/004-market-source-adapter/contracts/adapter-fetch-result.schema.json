@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/contracts/market-source-adapter/adapter-fetch-result.schema.json",
+  "title": "Adapter Fetch Result",
+  "description": "Planning contract for one controlled HTTP market source adapter fetch attempt. This contract describes the adapter boundary output and does not replace existing raw or normalized market snapshot contracts.",
+  "type": "object",
+  "required": [
+    "attempt_id",
+    "requested_symbol",
+    "source_metadata",
+    "outcome"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "attempt_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "requested_symbol": {
+      "type": "string",
+      "minLength": 1
+    },
+    "canonical_symbol": {
+      "type": "string",
+      "minLength": 1
+    },
+    "timeout_seconds": {
+      "type": "number",
+      "minimum": 0.1,
+      "default": 5
+    },
+    "source_metadata": {
+      "type": "object",
+      "required": [
+        "source_name",
+        "requested_at",
+        "classification"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "source_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "requested_symbol": {
+          "type": "string",
+          "minLength": 1
+        },
+        "endpoint_label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "requested_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "retrieved_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "response_status": {
+          "type": ["integer", "string"]
+        },
+        "classification": {
+          "type": "string",
+          "enum": [
+            "accepted",
+            "timeout",
+            "rate_limited",
+            "ticker_not_found",
+            "invalid_response_shape",
+            "unsupported_ticker",
+            "inactive_ticker",
+            "configuration_failure"
+          ]
+        },
+        "attribution": {
+          "type": "string"
+        }
+      }
+    },
+    "outcome": {
+      "type": "string",
+      "enum": ["accepted", "failed"]
+    },
+    "failure_class": {
+      "type": "string",
+      "enum": [
+        "timeout",
+        "rate_limited",
+        "ticker_not_found",
+        "invalid_response_shape",
+        "unsupported_ticker",
+        "inactive_ticker",
+        "configuration_failure"
+      ]
+    },
+    "failure_message": {
+      "type": "string"
+    },
+    "raw_source_payload": {
+      "description": "Provider-shaped payload or error body preserved when a source response is received. Must not contain credentials.",
+      "type": ["object", "array", "string", "number", "boolean", "null"]
+    },
+    "adapted_raw_snapshot": {
+      "description": "Accepted raw market snapshot following contracts/market-snapshots/raw-market-snapshot.schema.json. Omitted for failed outcomes.",
+      "type": "object"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "outcome": { "const": "accepted" }
+        }
+      },
+      "then": {
+        "required": ["canonical_symbol", "raw_source_payload", "adapted_raw_snapshot"],
+        "not": {
+          "required": ["failure_class"]
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "outcome": { "const": "failed" }
+        }
+      },
+      "then": {
+        "required": ["failure_class", "failure_message"],
+        "not": {
+          "required": ["adapted_raw_snapshot"]
+        }
+      }
+    }
+  ]
+}

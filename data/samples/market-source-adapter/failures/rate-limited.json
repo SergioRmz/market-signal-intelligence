@@ -1,0 +1,23 @@
+{
+  "attempt_id": "source-attempt-amxl-rate-limited-fixture",
+  "requested_symbol": "AMXL",
+  "canonical_symbol": "AMXL",
+  "timeout_seconds": 5,
+  "source_metadata": {
+    "source_name": "controlled-http-source-adapter",
+    "requested_symbol": "AMXL",
+    "endpoint_label": "controlled-http-endpoint",
+    "requested_at": "2026-06-01T15:00:00Z",
+    "retrieved_at": "2026-06-01T15:00:01Z",
+    "response_status": 429,
+    "classification": "rate_limited",
+    "attribution": "Controlled HTTP source fixture for deterministic adapter validation."
+  },
+  "outcome": "failed",
+  "failure_class": "rate_limited",
+  "failure_message": "Controlled source returned a rate-limited response.",
+  "raw_source_payload": {
+    "status": "rate_limited",
+    "message": "Request limit reached for controlled fixture scenario."
+  }
+}

@@ -48,3 +48,18 @@
 - `MS-REQ-008`: Invalid samples must map to at least one `MS-REQ-*` rule ID in `docs/validation/sample-rule-mapping.md`.
 - `MS-REQ-009`: Snapshot artifacts must not include live-feed behavior, advisory language, target prices, ratings, rankings, recommendations, or performance forecasts.
 - `MS-REQ-010`: Snapshot validation must be reproducible locally without network access or deployed services.
+
+## Market Source Adapter Rules
+
+- `MSA-REQ-001`: Source adapter boundary artifacts must exist and remain discoverable through the artifact manifest.
+- `MSA-REQ-002`: Exactly one controlled HTTP source implementation is allowed for this feature.
+- `MSA-REQ-003`: Adapter configuration must use a 5-second default timeout and support local override.
+- `MSA-REQ-004`: Adapter fetches must accept only active canonical symbols from `data/watchlists/asset-watchlist.json`.
+- `MSA-REQ-005`: Successful adapter output must preserve raw source payload evidence and source metadata.
+- `MSA-REQ-006`: Accepted adapter output must use the existing raw market snapshot contract shape.
+- `MSA-REQ-007`: Adapter validation must reuse existing market snapshot validation and must not add provider-specific normalized schemas.
+- `MSA-REQ-008`: Timeout outcomes must be classified as failed fetches with no accepted raw snapshot.
+- `MSA-REQ-009`: Rate-limited, ticker-not-found, and invalid-response-shape outcomes must be classified with preserved response evidence when available.
+- `MSA-REQ-010`: Unsupported, inactive, and missing-credential outcomes must be classified with no accepted raw snapshot.
+- `MSA-REQ-011`: Adapter samples and evidence must not contain committed credentials, tokens, or secrets.
+- `MSA-REQ-012`: Adapter artifacts must remain educational and technical, with no trading signals, ratings, rankings, target prices, recommendations, or performance forecasts.

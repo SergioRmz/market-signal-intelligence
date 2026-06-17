@@ -1,0 +1,10 @@
+{
+  "status": "ok",
+  "symbol": "AMXL",
+  "market": "BMV",
+  "observed_at": "2026-06-01T15:00:00Z",
+  "last_price": 18.77,
+  "currency": "MXN",
+  "volume": 1250000,
+  "provider_payload_id": "controlled-fixture-success-amxl"
+}

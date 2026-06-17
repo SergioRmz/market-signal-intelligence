@@ -16,3 +16,10 @@
 | `data/samples/market-snapshots/raw/invalid/raw-market-snapshot-invalid-04-prohibited-content.json` | `MS-REQ-009` | Raw snapshot contains prohibited advisory or live-feed content. |
 | `data/samples/market-snapshots/normalized/invalid/normalized-market-snapshot-invalid-01-missing-raw-snapshot-id.json` | `MS-REQ-003`, `MS-REQ-007` | Normalized snapshot omits the required raw snapshot provenance link. |
 | `data/samples/market-snapshots/normalized/invalid/normalized-market-snapshot-invalid-02-exchange-symbol-variant.json` | `MS-REQ-004` | Normalized snapshot uses an exchange symbol variant instead of the canonical watchlist symbol. |
+| `data/samples/market-source-adapter/failures/timeout.json` | `MSA-REQ-008` | Timeout is classified as a failed fetch with no accepted raw snapshot. |
+| `data/samples/market-source-adapter/failures/rate-limited.json` | `MSA-REQ-009` | Rate-limited response is classified and preserves response evidence. |
+| `data/samples/market-source-adapter/failures/ticker-not-found.json` | `MSA-REQ-009` | Ticker-not-found response is classified and preserves response evidence. |
+| `data/samples/market-source-adapter/failures/invalid-shape.json` | `MSA-REQ-009` | Invalid response shape is classified and preserves response evidence. |
+| `data/samples/market-source-adapter/failures/unsupported-ticker.json` | `MSA-REQ-010` | Unsupported ticker is rejected by watchlist eligibility before raw snapshot acceptance. |
+| `data/samples/market-source-adapter/failures/inactive-ticker.json` | `MSA-REQ-010` | Inactive watchlist ticker is rejected before raw snapshot acceptance. |
+| `data/samples/market-source-adapter/failures/configuration-failure.json` | `MSA-REQ-010`, `MSA-REQ-011` | Missing local credential configuration fails safely without exposing a credential value. |
