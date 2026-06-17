@@ -118,3 +118,33 @@ Completion review confirms this feature added no Kafka topology, FastAPI endpoin
 ## Expected Completion Signal
 
 Implementation is complete when adapter tests pass, adapter validation passes, existing market snapshot validation passes, task checkboxes are updated, and the validation evidence above is included in review notes.
+
+## Re-Validation Evidence (pre-PR)
+
+Re-ran all validation gates in the pre-PR environment (Linux, Python 3.11, Bash 5.2, jq 1.7) on `2026-06-17`:
+
+```bash
+scripts/validation/check-asset-watchlist.sh
+```
+
+Result: `PASS: Equity-primary asset watchlist and samples validated`.
+
+```bash
+scripts/validation/check-market-snapshots.sh
+```
+
+Result: `PASS: Local market snapshot contracts and samples validated`.
+
+```bash
+scripts/validation/check-market-source-adapter.sh
+```
+
+Result: `PASS: Market source adapter artifacts validated`.
+
+```bash
+python3 -m pytest tests/ -v
+```
+
+Result: `18 passed in 0.07s` (unit, integration, contract suites all green).
+
+Scope guardrails re-confirmed: no Kafka, no FastAPI, no database, no AWS, no dashboard, no AI/RAG, no scheduler, no multiple providers, no live feed, no advisory content, no production runtime behavior added by this feature.
