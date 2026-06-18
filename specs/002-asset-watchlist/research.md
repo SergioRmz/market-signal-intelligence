@@ -28,7 +28,7 @@
 
 **Decision**: All watchlist entries use currency code `MXN`, with notes allowed to clarify that index benchmark observations are expressed in points.
 
-**Rationale**: The watchlist is for Mexican market assets, and a required standard currency code keeps future ingestion contracts deterministic.
+**Rationale**: The watchlist is for governed market assets, starting with BMV, and a required standard currency code keeps future ingestion contracts deterministic.
 
 **Alternatives considered**: `XXX` and omitted currency were rejected because they would complicate validation and conflict with the required currency field.
 

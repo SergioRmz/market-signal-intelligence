@@ -6,7 +6,7 @@ Define how financial and macroeconomic data sources are classified before they a
 
 ## Categories
 
-- `allowed`: Source has acceptable licensing, attribution terms, provenance, and usage constraints for the intended educational/technical use.
+- `allowed`: Source has acceptable licensing, attribution terms, provenance, and usage constraints for the intended technical use.
 - `conditional`: Source may be used only when documented conditions are satisfied, such as attribution, rate limits, non-commercial restrictions, or manual approval.
 - `prohibited`: Source must not be used due to unclear licensing, unverifiable provenance, scraping restrictions, redistribution limits, or conflicts with project scope.
 

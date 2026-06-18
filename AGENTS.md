@@ -8,9 +8,9 @@ specs/004-market-source-adapter/plan.md
 
 ## Repository Scope
 
-This repository is the BMV Signal Intelligence Platform foundation. Work in this phase is limited to documentation, contracts, sample data, validation guidance, repository scaffolding, and the feature-004 controlled source adapter boundary authorized by `specs/004-market-source-adapter/plan.md`.
+This repository is the Market Signal Intelligence Platform foundation. Work in this phase covers documentation, contracts, sample data, validation guidance, repository scaffolding, and the feature-004 controlled source adapter boundary authorized by `specs/004-market-source-adapter/plan.md`.
 
-Do not add production runtime behavior in this feature. Specifically, do not implement ingestion services, Kafka topology, AWS deployment automation, AI analysis, RAG workflows, autonomous agents, dashboards, schedulers, persistence, multiple providers, or service endpoints.
+Production runtime features (live ingestion, Kafka, AWS, AI analysis, dashboards) are deferred to later phases where each is justified by a validated use case. Do not add them in this foundation phase.
 
 ## Required Reading Order
 
@@ -28,14 +28,14 @@ Do not add production runtime behavior in this feature. Specifically, do not imp
 
 ## Contribution Guardrails
 
-- Keep all financial content educational and non-advisory.
 - Preserve traceability for source policies, contracts, and samples.
 - Treat `contracts/events/asset-event.schema.json` as the contract boundary for future event work.
 - Treat `contracts/watchlists/asset-watchlist.schema.json` as the contract boundary for future asset watchlist work.
 - Treat `contracts/market-snapshots/raw-market-snapshot.schema.json` and `contracts/market-snapshots/normalized-market-snapshot.schema.json` as the contract boundaries for future local market snapshot work.
-- Preserve the equity-primary watchlist rule: individual Mexican equities are monitoring targets; `S&P/BMV IPC` is reference benchmark context only.
+- Preserve the equity-primary watchlist rule: individual equities are monitoring targets; index entries are reference benchmark context only.
 - Preserve the raw/normalized snapshot split and require active canonical watchlist symbols for valid snapshot samples.
-- Treat `src/market_signal_intelligence/sources/` as the limited controlled source adapter boundary for feature 004; keep it one-source, fixture-backed, non-scheduled, and raw-snapshot-primary.
+- Treat `src/market_signal_intelligence/sources/` as the controlled source adapter boundary for feature 004; keep it one-source, fixture-backed, non-scheduled, and raw-snapshot-primary.
+- The platform is multi-market by design. BMV is the first governed market. Do not hard-code BMV-only assumptions that would block future governed market extension.
 - Update validation evidence when contract or sample files change.
 - Keep scaffolding empty or documentation-only unless a future feature explicitly authorizes runtime code.
 

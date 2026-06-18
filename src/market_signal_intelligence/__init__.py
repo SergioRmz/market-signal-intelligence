@@ -1,1 +1,1 @@
-"""BMV Signal Intelligence internal data workflows."""
+"""Market Signal Intelligence internal data workflows."""

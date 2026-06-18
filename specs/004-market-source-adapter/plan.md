@@ -32,7 +32,7 @@ Introduce the first controlled market data source adapter as a small internal Py
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-- [x] Non-advisory scope enforced: no buy/sell/hold or portfolio recommendations. Adapter outputs and fixtures are technical observations only.
+- [x] Product boundary enforced: no buy/sell/hold or portfolio recommendations. Adapter outputs and fixtures are technical observations only.
 - [x] Traceability/reproducibility plan defined: source metadata, raw provider payload, request ticker, outcome classification, configured timeout, and fixture-backed validation are required.
 - [x] Contract-first boundaries defined: existing raw/normalized market snapshot contracts remain stable; adapter boundary and fetch-result planning contracts are documented before implementation.
 - [x] Evidence-backed AI controls defined (if AI used): no AI outputs are included in this feature.
@@ -110,7 +110,7 @@ No constitution violations or complexity exceptions are required for this featur
 
 ## Post-Design Constitution Check
 
-- [x] Non-advisory scope remains enforced in research, data model, contracts, and quickstart.
+- [x] Product boundary remains enforced in research, data model, contracts, and quickstart.
 - [x] Traceability/reproducibility remains covered through fetch attempts, source metadata, raw payload fixtures, deterministic failure classes, and validation evidence.
 - [x] Contract-first boundaries remain stable: adapter fetch result is a boundary contract, while existing market snapshot schemas remain unchanged.
 - [x] Evidence-backed AI controls remain not applicable because no AI output is introduced.

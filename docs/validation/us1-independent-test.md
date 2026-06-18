@@ -7,7 +7,7 @@ Confirm a maintainer can locate and review all required foundation artifacts fro
 ## Steps
 
 1. Run `scripts/validation/check-foundation-artifacts.sh`.
-2. Open `README.md` and confirm purpose, scope, non-goals, disclaimer, planned stack, and methodology exist.
+2. Open `README.md` and confirm purpose, scope, non-goals, product scope clarification, planned stack, and methodology exist.
 3. Open `AGENTS.md` and confirm agent guardrails and review expectations exist.
 4. Open `docs/foundation/artifact-manifest.md` and confirm exact artifact paths are listed.
 

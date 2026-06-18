@@ -62,4 +62,4 @@
 - `MSA-REQ-009`: Rate-limited, ticker-not-found, and invalid-response-shape outcomes must be classified with preserved response evidence when available.
 - `MSA-REQ-010`: Unsupported, inactive, and missing-credential outcomes must be classified with no accepted raw snapshot.
 - `MSA-REQ-011`: Adapter samples and evidence must not contain committed credentials, tokens, or secrets.
-- `MSA-REQ-012`: Adapter artifacts must remain educational and technical, with no trading signals, ratings, rankings, target prices, recommendations, or performance forecasts.
+- `MSA-REQ-012`: Adapter artifacts must remain technical, with no trading signals, ratings, rankings, target prices, recommendations, or performance forecasts.

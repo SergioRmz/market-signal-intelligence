@@ -9,7 +9,7 @@ Represents the versioned local allowlist of assets later ingestion features may 
 - `watchlist_id`: Stable identifier for the watchlist. Required; expected value `asset-watchlist`.
 - `version`: Version identifier for the watchlist content. Required; must change when governed content changes.
 - `effective_date`: Date when the watchlist version becomes the active review baseline. Required; ISO date.
-- `purpose`: Human-readable statement that the file is an allowlist for future monitoring scope. Required; must remain non-advisory.
+- `purpose`: Human-readable statement that the file is an allowlist for future monitoring scope. Required; must remain .
 - `assets`: Collection of watchlist entries. Required; 5-15 entries with at least 5 active equity monitoring targets.
 
 ### Relationships
@@ -58,7 +58,7 @@ Explains why and how the entry is included.
 ### Fields
 
 - `source_reference`: Required reference category or documentation source used for reviewer traceability.
-- `review_rationale`: Required non-advisory rationale for inclusion.
+- `review_rationale`: Required rationale for inclusion.
 - `reviewed_by`: Optional maintainer or role identifier.
 - `reviewed_at`: Optional review date.
 

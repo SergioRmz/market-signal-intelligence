@@ -57,7 +57,7 @@ As a future ingestion service owner, I need raw market snapshots and normalized 
 
 As a contributor or future agent, I need lightweight local validation rules and samples so I can verify snapshot artifacts without adding external APIs, scraping, streaming, databases, service endpoints, cloud resources, or AI analysis.
 
-**Why this priority**: Lightweight validation keeps the feature foundation-first while giving reviewers repeatable evidence for contract, sample, watchlist, and non-advisory guardrails.
+**Why this priority**: Lightweight validation keeps the feature foundation-first while giving reviewers repeatable evidence for contract, sample, watchlist, and guardrails.
 
 **Independent Test**: Can be tested by following repository-local validation guidance and confirming valid samples pass, invalid samples fail for documented rule IDs, and all reviewed assets are checked against the active watchlist.
 
@@ -95,13 +95,13 @@ As a contributor or future agent, I need lightweight local validation rules and 
 - **FR-010**: The feature MUST include at least two valid raw snapshot samples and at least two valid normalized snapshot samples that demonstrate successful local snapshot acceptance and normalization readiness.
 - **FR-011**: The feature MUST include invalid snapshot samples demonstrating distinct failures, including separate examples for a missing watchlist asset and an inactive watchlist asset, plus malformed required fields and prohibited advisory or live-feed content.
 - **FR-012**: Each invalid snapshot sample MUST map to at least one stable validation rule ID documented in repository validation guidance.
-- **FR-013**: Valid raw and normalized snapshot samples MUST include observed values for `last_price`, `currency`, and `volume`; other market observation fields MAY be included only when they remain static, local, and non-advisory.
+- **FR-013**: Valid raw and normalized snapshot samples MUST include observed values for `last_price`, `currency`, and `volume`; other market observation fields MAY be included only when they remain static, local, and .
 - **FR-014**: The feature MUST define lightweight validation rules for required fields, raw-to-normalized separation, watchlist existence, active status, canonical symbol usage, timestamp quality, observed-value shape, required `raw_snapshot_id` provenance linkage, and prohibited non-local behavior.
 - **FR-015**: The local validation guidance MUST be reproducible from a clean repository checkout without network access, deployed services, event brokers, database connections, service endpoints, cloud resources, or AI tools.
 - **FR-016**: The feature MUST document validation evidence expected from reviewers, including reviewed sample counts, pass/fail classification, active-watchlist checks, invalid sample rule mappings, and scope-guardrail confirmation.
 - **FR-017**: The feature MUST NOT add external APIs, website scraping, Kafka or streaming topology, database persistence, FastAPI or service endpoints, AWS or cloud automation, dashboard behavior, AI analysis, RAG workflows, autonomous agents, or live price fetching.
 - **FR-018**: Snapshot artifacts MUST NOT include buy, sell, hold, rating, ranking, target price, portfolio allocation, recommendation, or performance forecast language.
-- **FR-019**: Snapshot artifacts MUST remain educational and technical examples for local validation and MUST NOT imply investment advice or trading signals.
+- **FR-019**: Snapshot artifacts MUST remain functional and technical examples for local validation and MUST NOT imply personalized financial advice or trading signals.
 - **FR-020**: The feature MUST update governed artifact traceability so new snapshot contracts, samples, validation guidance, and local validation artifacts are discoverable by maintainers.
 - **FR-021**: Before completion, the feature MUST review `README.md` and `AGENTS.md` and update them if and only if snapshot ingestion artifacts introduce project-wide usage instructions, validation workflow changes, contributor guidance, scope boundaries, or agent operating constraints not already covered.
 - **FR-022**: Future ingestion work MUST be able to use the raw and normalized snapshot definitions as contract boundaries without relying on external lookup behavior introduced by this feature.
@@ -124,7 +124,7 @@ As a contributor or future agent, I need lightweight local validation rules and 
 - **SC-004**: A maintainer can distinguish raw snapshot samples from normalized snapshot samples and trace each valid normalized sample back to its raw source in under 5 minutes.
 - **SC-005**: Local validation evidence can be reproduced from a clean repository checkout in 10 minutes or less without network access or deployed infrastructure.
 - **SC-006**: 0 feature deliverables introduce external APIs, scraping, Kafka, databases, FastAPI endpoints, AWS resources, AI analysis, live price fetching, or other runtime market-data integrations.
-- **SC-007**: At least 90% of maintainers reviewing the feature can explain the raw-vs-normalized boundary, active-watchlist gate, and non-advisory scope within 10 minutes using only repository-local artifacts.
+- **SC-007**: At least 90% of maintainers reviewing the feature can explain the raw-vs-normalized boundary, active-watchlist gate, and product boundary within 10 minutes using only repository-local artifacts.
 - **SC-008**: Completion review confirms `README.md` and `AGENTS.md` were either updated with required project-wide guidance or explicitly documented as not needing changes.
 
 ## Assumptions
@@ -133,5 +133,5 @@ As a contributor or future agent, I need lightweight local validation rules and 
 - The canonical watchlist at `data/watchlists/asset-watchlist.json` remains the source of truth for determining whether a sample asset is allowed and active.
 - Raw snapshots may preserve source-shaped field names or values, while normalized snapshots use canonical platform terminology defined by this feature.
 - Lightweight validation may include repository-local commands or manual review guidance, but it must not depend on external services or network calls.
-- Sample market values are illustrative, static, and non-advisory; they do not represent live prices, recommendations, or performance forecasts.
+- Sample market values are illustrative, static, and ; they do not represent live prices, recommendations, or performance forecasts.
 - General project documentation updates are conditional; they are required only when the feature introduces information that maintainers, contributors, or agents need outside feature-specific artifacts.

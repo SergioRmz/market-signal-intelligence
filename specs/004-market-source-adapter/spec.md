@@ -6,7 +6,7 @@
 
 **Status**: Draft
 
-**Input**: User description: "Add the first controlled external market data source integration for BMV Signal Intelligence Platform. Introduce a small, replaceable market data source adapter that can fetch a market snapshot for an active watchlist ticker from an external source, preserve raw source data, convert it into the existing raw market snapshot shape, validate it through the existing snapshot pipeline, and produce deterministic testable outputs. External sources are unstable. Internal contracts must remain stable. Must include a source adapter boundary, one initial implementation for a single external or controlled HTTP source, explicit HTTP timeout handling, expected failure handling, raw source payload and metadata preservation, active asset watchlist validation, reuse of existing local snapshot validation/normalization where applicable, fixtures or tests for successful and failed fetch scenarios, and minimal documentation. Must not include Kafka, FastAPI endpoints, database persistence, AWS resources, dashboard work, AI analysis, trading signals, ratings, targets, investment recommendations, multiple providers, production scheduler, or aggressive scraping. Before finalizing the spec, incorporate this architectural clarification: the platform is BMV-first but not BMV-only."
+**Input**: User description: "Add the first controlled external market data source integration for Market Signal Intelligence Platform. Introduce a small, replaceable market data source adapter that can fetch a market snapshot for an active watchlist ticker from an external source, preserve raw source data, convert it into the existing raw market snapshot shape, validate it through the existing snapshot pipeline, and produce deterministic testable outputs. External sources are unstable. Internal contracts must remain stable. Must include a source adapter boundary, one initial implementation for a single external or controlled HTTP source, explicit HTTP timeout handling, expected failure handling, raw source payload and metadata preservation, active asset watchlist validation, reuse of existing local snapshot validation/normalization where applicable, fixtures or tests for successful and failed fetch scenarios, and minimal documentation. Must not include Kafka, FastAPI endpoints, database persistence, AWS resources, dashboard work, AI analysis, trading signals, ratings, targets, investment recommendations, multiple providers, production scheduler, or aggressive scraping. Before finalizing the spec, incorporate this architectural clarification: the platform is BMV-first but not BMV-only."
 
 ## Clarifications
 
@@ -31,7 +31,7 @@ As a maintainer, I need a controlled market data source adapter that can request
 
 1. **Given** an active equity ticker in the canonical watchlist and a controlled successful source response from the configured HTTP endpoint, **When** a single snapshot fetch is requested, **Then** the result includes the preserved source payload, source metadata, and an accepted raw market snapshot shaped for existing snapshot validation.
 2. **Given** an inactive or unsupported ticker, **When** a snapshot fetch is requested, **Then** the request is rejected before producing a raw market snapshot and the rejection identifies watchlist eligibility as the reason.
-3. **Given** a successful source response whose market values are accepted, **When** the result is reviewed, **Then** it contains no recommendation, rating, target price, trading signal, portfolio guidance, or investment advice language.
+3. **Given** a successful source response whose market values are accepted, **When** the result is reviewed, **Then** it contains no recommendation, rating, target price, trading signal, portfolio guidance, or personalized financial advice language.
 
 ---
 
@@ -58,7 +58,7 @@ As a contributor or future agent, I need deterministic success and failure fixtu
 
 **Why this priority**: Source failures are common and must be predictable before the platform depends on any external market data behavior.
 
-**Independent Test**: Can be tested by running fixture-backed scenarios for timeout, rate-limited response, ticker not found, invalid response shape, unsupported ticker, and inactive ticker, then confirming each produces a clear non-advisory failure result and no accepted raw snapshot.
+**Independent Test**: Can be tested by running fixture-backed scenarios for timeout, rate-limited response, ticker not found, invalid response shape, unsupported ticker, and inactive ticker, then confirming each produces a clear failure result and no accepted raw snapshot.
 
 **Acceptance Scenarios**:
 
@@ -78,7 +78,7 @@ As a reviewer, I need concise documentation of the initial source's limitations,
 
 **Acceptance Scenarios**:
 
-1. **Given** the source documentation, **When** a maintainer reviews allowed usage, **Then** they can identify the single supported source, its limitations, and the exact constraints for non-advisory, non-scheduled, non-scraping use.
+1. **Given** the source documentation, **When** a maintainer reviews allowed usage, **Then** they can identify the single supported source, its limitations, and the exact constraints for , non-scheduled, non-scraping use.
 2. **Given** a proposed change that adds another provider or production scheduler, **When** the feature scope is reviewed, **Then** the change is rejected as outside this feature.
 3. **Given** the adapter changes project-wide usage, validation, scope, or agent guidance, **When** the feature is completed, **Then** the relevant project documentation such as `README.md` or `AGENTS.md` is updated; otherwise the review documents that no project-wide documentation change was needed.
 
@@ -128,7 +128,7 @@ As a reviewer, I need concise documentation of the initial source's limitations,
 - **FR-025**: If project documentation does not require updates, the feature MUST document that review outcome in feature-specific completion evidence.
 - **FR-026**: The feature MUST NOT add Kafka producers or consumers, FastAPI endpoints, database persistence, AWS resources, dashboard work, AI analysis, RAG workflows, autonomous agents, multiple source providers, production schedulers, bulk ingestion, or aggressive scraping.
 - **FR-027**: The feature MUST NOT produce trading signals, buy/sell/hold language, ratings, rankings, price targets, portfolio allocation guidance, investment recommendations, or performance forecasts.
-- **FR-028**: The feature MUST keep all market data content educational and technical, and any reviewer-facing documentation MUST reinforce that snapshots are not investment advice.
+- **FR-028**: The feature MUST keep all market data content functional and technical, and any reviewer-facing documentation MUST reinforce that snapshots are .
 
 ### Key Entities *(include if feature involves data)*
 
@@ -167,5 +167,5 @@ As a reviewer, I need concise documentation of the initial source's limitations,
 - The platform is BMV-first but not BMV-only; this feature starts from active governed BMV watchlist assets while preserving a boundary that can support future approved non-BMV assets through later governed changes.
 - Existing watchlist and market snapshot contracts remain the internal source of truth; this feature adapts external source data to those contracts rather than redefining them.
 - Timeout, rate-limit, not-found, invalid-shape, unsupported-ticker, and inactive-ticker outcomes are sufficient expected failure categories for the first controlled source integration.
-- Market values retrieved or represented through fixtures are technical observations only and are not recommendations, ratings, signals, targets, or investment advice.
+- Market values retrieved or represented through fixtures are technical observations.
 - Project-wide documentation updates are conditional; they are required only when this feature adds guidance that maintainers, contributors, or agents need outside feature-specific artifacts.

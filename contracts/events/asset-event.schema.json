@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://example.com/bmv-signal-intelligence/contracts/events/asset-event.schema.json",
+  "$id": "https://example.com/market-signal-intelligence/contracts/events/asset-event.schema.json",
   "title": "AssetEvent",
   "description": "Base event contract for educational/technical market intelligence events.",
   "type": "object",

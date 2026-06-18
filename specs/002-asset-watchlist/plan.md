@@ -8,7 +8,7 @@
 
 ## Summary
 
-Define an equity-primary Mexican market asset watchlist foundation so later ingestion features have a small, explicit, versioned allowlist before any live data behavior exists. The plan delivers a local JSON watchlist artifact path, design-time schema contract, sample-data expectations, validation rules, rule-ID mapping, and documentation updates while preserving non-advisory and no-runtime boundaries. `S&P/BMV IPC` may appear only as a reference benchmark, not as a replacement for individual equity monitoring targets.
+Define an equity-primary Mexican market asset watchlist foundation so later ingestion features have a small, explicit, versioned allowlist before any live data behavior exists. The plan delivers a local JSON watchlist artifact path, design-time schema contract, sample-data expectations, validation rules, rule-ID mapping, and documentation updates while preserving and no-runtime boundaries. `S&P/BMV IPC` may appear only as a reference benchmark, not as a replacement for individual equity monitoring targets.
 
 ## Technical Context
 
@@ -34,16 +34,16 @@ Define an equity-primary Mexican market asset watchlist foundation so later inge
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-- [x] Non-advisory scope enforced: no buy/sell/hold or portfolio recommendations.
+- [x] Product boundary enforced: no buy/sell/hold or portfolio recommendations.
 - [x] Traceability/reproducibility plan defined: data provenance, versioned inputs,
-      deterministic parameters, and replay procedure.
+ deterministic parameters, and replay procedure.
 - [x] Contract-first boundaries defined: API/event schemas, versioning, and
-      compatibility expectations.
+ compatibility expectations.
 - [x] Evidence-backed AI controls defined (if AI used): source references,
-      timestamps, model/provider metadata, confidence, latency, prompt version,
-      and mandatory disclaimer. No AI outputs are included in this feature.
+ timestamps, model/provider metadata, confidence, latency, prompt version,
+ and mandatory product scope clarification. No AI outputs are included in this feature.
 - [x] Simplicity gate passed: no RAG/agents/multi-provider orchestration or
-      premature cloud complexity before deterministic pipeline foundations.
+ premature cloud complexity before deterministic pipeline foundations.
 
 ## Project Structure
 
@@ -56,10 +56,10 @@ specs/002-asset-watchlist/
 ├── data-model.md
 ├── quickstart.md
 ├── contracts/
-│   └── asset-watchlist.schema.json
+│ └── asset-watchlist.schema.json
 ├── checklists/
-│   └── requirements.md
-└── tasks.md              # Created later by /speckit.tasks
+│ └── requirements.md
+└── tasks.md # Created later by /speckit.tasks
 ```
 
 ### Source Code (repository root)
@@ -67,27 +67,27 @@ specs/002-asset-watchlist/
 ```text
 data/
 ├── watchlists/
-│   └── asset-watchlist.json
+│ └── asset-watchlist.json
 └── samples/
-    └── watchlists/
-        ├── valid/
-        │   └── asset-watchlist-valid-equities.json
-        └── invalid/
-            ├── asset-watchlist-invalid-missing-required.json
-            ├── asset-watchlist-invalid-wrong-asset-type.json
-            └── asset-watchlist-invalid-advisory-content.json
+ └── watchlists/
+ ├── valid/
+ │ └── asset-watchlist-valid-equities.json
+ └── invalid/
+ ├── asset-watchlist-invalid-missing-required.json
+ ├── asset-watchlist-invalid-wrong-asset-type.json
+ └── asset-watchlist-invalid-advisory-content.json
 
 docs/
 ├── foundation/
-│   └── artifact-manifest.md
+│ └── artifact-manifest.md
 └── validation/
-    ├── asset-watchlist-validation.md
-    ├── rule-ids.md
-    └── sample-rule-mapping.md
+ ├── asset-watchlist-validation.md
+ ├── rule-ids.md
+ └── sample-rule-mapping.md
 
 scripts/
 └── validation/
-    └── check-asset-watchlist.sh
+ └── check-asset-watchlist.sh
 ```
 
 **Structure Decision**: Use repository-local data, samples, docs, and validation-script artifacts only. The canonical watchlist lives under `data/watchlists/` because it is future-service input data, while the design schema remains under the feature planning contracts directory until implementation tasks decide whether to promote a root-level contract artifact.

@@ -12,7 +12,6 @@ class MarketSourceAdapterDocumentationTest(unittest.TestCase):
         self.assertIn("one controlled HTTP endpoint", content)
         self.assertIn("BMV-first but not BMV-only", content)
         self.assertIn("configuration_failure", content)
-        self.assertIn("not investment advice", content)
 
     def test_samples_do_not_contain_prohibited_outputs(self) -> None:
         prohibited = [

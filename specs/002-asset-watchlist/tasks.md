@@ -49,7 +49,7 @@
 - [X] T012 [US1] Create canonical equity-primary watchlist artifact in `data/watchlists/asset-watchlist.json`
 - [X] T013 [US1] Ensure `data/watchlists/asset-watchlist.json` contains `watchlist_id`, `version`, `effective_date`, `purpose`, and at least five active equity entries
 - [X] T014 [US1] Ensure equity entries in `data/watchlists/asset-watchlist.json` use `asset_type` `equity`, `asset_role` `monitoring_target`, currency `MXN`, and BMV/Mexico metadata
-- [X] T015 [US1] Add source reference and non-advisory review rationale in each `traceability` object of `data/watchlists/asset-watchlist.json`
+- [X] T015 [US1] Add source reference and review rationale in each `traceability` object of `data/watchlists/asset-watchlist.json`
 - [X] T016 [US1] Ensure `IPC` in `data/watchlists/asset-watchlist.json` is only `asset_type` `index` and `asset_role` `reference_benchmark`
 
 ---
@@ -77,15 +77,15 @@
 
 ---
 
-## Phase 5: User Story 3 - Preserve Non-Advisory Traceability (Priority: P3)
+## Phase 5: User Story 3 - Preserve Product Boundary Traceability (Priority: P3)
 
 **Goal**: Ensure the watchlist, samples, and validation guidance preserve traceability and cannot be mistaken for advice, live market data, or runtime ingestion behavior.
 
-**Independent Test**: A reviewer can inspect the watchlist artifacts and run local validation to confirm source traceability, non-advisory language, and absence of live prices, ratings, recommendations, external API behavior, database work, endpoints, streaming, dashboard code, or AI analysis.
+**Independent Test**: A reviewer can inspect the watchlist artifacts and run local validation to confirm source traceability, language, and absence of live prices, ratings, recommendations, external API behavior, database work, endpoints, streaming, dashboard code, or AI analysis.
 
 ### Tests for User Story 3
 
-- [X] T026 [P] [US3] Add non-advisory content scan expectations to `docs/validation/asset-watchlist-validation.md`
+- [X] T026 [P] [US3] Add content scan expectations to `docs/validation/asset-watchlist-validation.md`
 - [X] T027 [P] [US3] Add scope guardrail review checklist for watchlist artifacts in `docs/validation/asset-watchlist-validation.md`
 
 ### Implementation for User Story 3
@@ -138,7 +138,7 @@ Complete Phase 1, Phase 2, and US1 so the repository has a concrete equity-prima
 
 ### Incremental Delivery
 
-Add samples and validation after the canonical watchlist, then finish with non-advisory and no-runtime checks.
+Add samples and validation after the canonical watchlist, then finish with and no-runtime checks.
 
 ## Notes
 

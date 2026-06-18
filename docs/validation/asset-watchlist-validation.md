@@ -12,7 +12,7 @@ Run from the repository root:
 scripts/validation/check-asset-watchlist.sh
 ```
 
-The command validates the canonical watchlist, valid samples, invalid sample mappings, and non-advisory scope guardrails without network access or deployed services.
+The command validates the canonical watchlist, valid samples, invalid sample mappings, and product boundary guardrails without network access or deployed services.
 
 ## Rule IDs
 
@@ -38,7 +38,7 @@ Reviewers must confirm `data/watchlists/asset-watchlist.json` satisfies these ba
 - Each primary monitoring target uses `asset_type` `equity` and `asset_role` `monitoring_target`.
 - Each entry uses currency `MXN`.
 - Market metadata identifies BMV/Mexico context and preserves exchange symbols where useful.
-- Traceability includes source reference and non-advisory review rationale.
+- Traceability includes source reference and review rationale.
 - `IPC` appears only as a reference benchmark with `asset_type` `index` and `asset_role` `reference_benchmark`.
 - No index entry replaces or reduces the individual equity monitoring targets.
 
@@ -48,7 +48,7 @@ Reviewers must confirm `data/watchlists/asset-watchlist.json` satisfies these ba
 - Invalid samples under `data/samples/watchlists/invalid/` must remain parseable JSON but fail at least one `WL-REQ-*` rule.
 - Every invalid watchlist sample must be listed in `docs/validation/sample-rule-mapping.md` with at least one violated rule ID.
 
-## Non-Advisory Content Scan
+## Product Boundary Content Scan
 
 The local validation script rejects watchlist and sample JSON when it finds prohibited terms or fields associated with live prices, target prices, ratings, rankings, trading signals, recommendations, portfolio allocation, or performance forecasts.
 
@@ -104,4 +104,4 @@ Pull requests must include:
 ## Guardrails
 
 - Validation must not fetch live prices, scrape websites, call external APIs, connect to databases, create service endpoints, produce streaming events, run dashboard code, or invoke AI analysis.
-- Watchlist artifacts are educational and technical scope controls only; they are not investment advice, trading signals, ratings, rankings, or recommendations.
+- Watchlist artifacts are technical scope controls for governed monitoring.

@@ -6,7 +6,7 @@
 
 **Status**: Draft
 
-**Input**: User description: "Before creating this specification, read and follow: .specify/memory/constitution.md, existing repository structure, and existing skills under .opencode/skills if relevant. Create the specification for the initial project foundation of BMV Signal Intelligence Platform, including repository documentation, source policy, base AssetEvent contract and samples, validation approach, and repository structure; exclude application implementation and advanced platform components."
+**Input**: User description: "Before creating this specification, read and follow: .specify/memory/constitution.md, existing repository structure, and existing skills under .opencode/skills if relevant. Create the specification for the initial project foundation of Market Signal Intelligence Platform, including repository documentation, source policy, base AssetEvent contract and samples, validation approach, and repository structure; exclude application implementation and advanced platform components."
 
 ## Clarifications
 
@@ -76,7 +76,7 @@ As a future agent or service owner, I need a base AssetEvent contract, valid/inv
 
 ### Functional Requirements
 
-- **FR-001**: The repository MUST include a foundation README that defines project purpose, in-scope outcomes, out-of-scope outcomes, non-investment-advice disclaimer, planned stack overview, and development methodology.
+- **FR-001**: The repository MUST include a foundation README that defines project purpose, in-scope outcomes, out-of-scope outcomes, non-investment-advice product scope clarification, planned stack overview, and development methodology.
 - **FR-002**: The repository MUST include an AGENTS guidance document defining how coding agents should operate in this repository, including scope safeguards, review expectations, and artifact update responsibilities.
 - **FR-003**: The repository MUST include initial architecture documentation that identifies major bounded areas, intended data and control flow at a conceptual level, and the responsibilities of each repository area.
 - **FR-004**: The repository MUST include an allowed sources policy for financial and macroeconomic data that defines approval criteria, prohibited source characteristics, attribution expectations, and provenance requirements.
@@ -86,7 +86,7 @@ As a future agent or service owner, I need a base AssetEvent contract, valid/inv
 - **FR-008**: The repository MUST establish a documented directory structure covering specification-driven development assets, opencode skills/commands, backend area, dashboard area, service boundaries, contracts, data samples, infrastructure placeholders, and architecture/documentation space.
 - **FR-009**: The feature deliverables MUST contain no application runtime implementation for ingestion, event streaming topology, AI analysis, cloud deployment automation, RAG workflows, or dashboard application behavior.
 - **FR-010**: All foundation artifacts MUST be written to support maintainers, contributors, and future agents by emphasizing intent, responsibilities, governance constraints, and handoff clarity.
-- **FR-011**: The foundation documentation MUST preserve constitution alignment by explicitly reinforcing educational/non-advisory scope, traceability expectations, contract-first behavior, and foundation-first sequencing.
+- **FR-011**: The foundation documentation MUST preserve constitution alignment by explicitly reinforcing product boundary, traceability expectations, contract-first behavior, and foundation-first sequencing.
 - **FR-012**: The specification MUST define an explicit artifact manifest with exact expected paths and minimum required sections for each artifact.
 - **FR-013**: The artifact manifest MUST include at least these paths: `README.md`, `AGENTS.md`, `docs/architecture/foundation-architecture.md`, `docs/policies/allowed-sources.md`, `contracts/events/asset-event.schema.json`, `data/samples/asset-events/valid/`, `data/samples/asset-events/invalid/`, and `docs/validation/event-contract-validation.md`.
 - **FR-014**: The base AssetEvent schema MUST define these minimum required fields with exact names for every event: `event_id`, `event_type`, `schema_version`, `occurred_at`, `source`, `asset`, and `payload`.

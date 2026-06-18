@@ -37,7 +37,7 @@ scripts/validation/check-market-snapshots.sh
 - `MSA-REQ-009`: Source response failures are classified and preserve response evidence when available.
 - `MSA-REQ-010`: Watchlist and configuration failures produce no accepted raw snapshot.
 - `MSA-REQ-011`: Credentials, tokens, and secrets are not committed.
-- `MSA-REQ-012`: Content remains educational and technical, without signals, ratings, targets, or forecasts.
+- `MSA-REQ-012`: Content remains functional and technical, without signals, ratings, targets, or forecasts.
 
 ## Evidence Format
 
