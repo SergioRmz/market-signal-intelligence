@@ -36,4 +36,4 @@ Failed attempts do not produce accepted raw market snapshots.
 
 ## Exclusions
 
-This adapter does not add Kafka, service endpoints, database persistence, AWS resources, dashboards, AI analysis, schedulers, multiple providers, bulk ingestion, scraping, ratings, rankings, target prices, trading signals, recommendations, or performance forecasts. It is educational and technical only, not investment advice.
+This adapter does not add Kafka, service endpoints, database persistence, AWS resources, dashboards, AI analysis, schedulers, multiple providers, bulk ingestion, scraping, ratings, rankings, target prices, trading signals, recommendations, or performance forecasts. It is a controlled technical boundary, not a production feed.

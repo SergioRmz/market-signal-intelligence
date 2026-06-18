@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://bmv-signal-intelligence.local/contracts/normalized-market-snapshot.schema.json",
+  "$id": "https://market-signal-intelligence.local/contracts/normalized-market-snapshot.schema.json",
   "title": "Normalized Market Snapshot",
   "description": "Contract for canonical watchlist-aligned local market snapshot samples.",
   "type": "object",

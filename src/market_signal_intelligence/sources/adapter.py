@@ -172,7 +172,7 @@ class MarketSourceAdapter:
                 "sample_origin": "Adapted from preserved controlled HTTP source payload fixture.",
                 "review_notes": "Adapter output uses the existing raw market snapshot contract; normalization remains owned by the 003 pipeline.",
             },
-            "notes": "Educational technical adapter sample; not investment advice.",
+            "notes": "Technical adapter sample for pipeline validation.",
         }
 
     def _watchlist_entry(self, symbol: str) -> dict[str, Any] | None:

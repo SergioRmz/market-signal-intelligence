@@ -13,7 +13,7 @@ Represents a source-shaped local market observation preserved as a static sample
 - `observed_at`: Observation timestamp. Required; must be valid and not malformed.
 - `observed_values`: Observed market values object. Required; must include `last_price`, `currency`, and `volume`.
 - `provenance`: Review and sample provenance object. Required; must identify that the data is static and local.
-- `notes`: Optional non-advisory notes.
+- `notes`: Optional notes.
 
 ### Relationships
 
@@ -49,9 +49,9 @@ Represents the minimal local market observation payload.
 ### Fields
 
 - `last_price`: Static illustrative numeric market value. Required; must not be presented as live data or advice.
-- `currency`: Currency code. Required; expected value `MXN` for Mexican equities and benchmark samples.
+- `currency`: Currency code. Required; expected value `MXN` for multi-market assets, starting with BMV and benchmark samples.
 - `volume`: Static illustrative numeric volume. Required; may be zero for benchmark samples if documented as contextual.
-- Additional fields: Optional only when static, local, non-advisory, and documented by the contract.
+- Additional fields: Optional only when static, local, , and documented by the contract.
 
 ## Entity: Watchlist Entry Reference
 
@@ -96,7 +96,7 @@ Defines a stable local validation rule.
 
 ## State Transitions
 
-- `raw sample valid`: Required fields pass, symbol is canonical and active, observed values are present, and content is non-advisory.
+- `raw sample valid`: Required fields pass, symbol is canonical and active, observed values are present, and content is .
 - `raw sample invalid`: Missing watchlist asset, inactive asset, malformed required field, missing observed value, prohibited content, or non-local/live-feed metadata.
 - `normalized sample valid`: References a valid raw sample by `raw_snapshot_id` and preserves canonical watchlist identity.
 - `normalized sample invalid`: Missing raw reference, references an invalid or missing raw sample, loses provenance, or violates canonical identity rules.

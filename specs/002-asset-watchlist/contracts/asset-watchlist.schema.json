@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://bmv-signal-intelligence.local/contracts/asset-watchlist.schema.json",
+  "$id": "https://market-signal-intelligence.local/contracts/asset-watchlist.schema.json",
   "title": "Asset Watchlist",
   "description": "Design contract for the equity-primary Mexican market asset watchlist artifact.",
   "type": "object",

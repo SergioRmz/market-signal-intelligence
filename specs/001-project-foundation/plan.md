@@ -17,9 +17,9 @@ expectations, and a lightweight local validation protocol.
 ## Technical Context
 
 <!--
-  ACTION REQUIRED: Replace the content in this section with the technical details
-  for the project. The structure here is presented in advisory capacity to guide
-  the iteration process.
+ ACTION REQUIRED: Replace the content in this section with the technical details
+ for the project. The structure here is presented in advisory capacity to guide
+ the iteration process.
 -->
 
 **Language/Version**: Markdown + JSON Schema Draft 2020-12 (contract docs only)
@@ -44,16 +44,16 @@ expectations, and a lightweight local validation protocol.
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-- [x] Non-advisory scope enforced: no buy/sell/hold or portfolio recommendations.
+- [x] Product boundary enforced: no buy/sell/hold or portfolio recommendations.
 - [x] Traceability/reproducibility plan defined: data provenance, versioned inputs,
-      deterministic parameters, and replay procedure.
+ deterministic parameters, and replay procedure.
 - [x] Contract-first boundaries defined: API/event schemas, versioning, and
-      compatibility expectations.
+ compatibility expectations.
 - [x] Evidence-backed AI controls defined (if AI used): source references,
-      timestamps, model/provider metadata, confidence, latency, prompt version,
-      and mandatory disclaimer.
+ timestamps, model/provider metadata, confidence, latency, prompt version,
+ and mandatory product scope clarification.
 - [x] Simplicity gate passed: no RAG/agents/multi-provider orchestration or
-      premature cloud complexity before deterministic pipeline foundations.
+ premature cloud complexity before deterministic pipeline foundations.
 
 ## Project Structure
 
@@ -61,20 +61,20 @@ expectations, and a lightweight local validation protocol.
 
 ```text
 specs/001-project-foundation/
-├── plan.md              # This file (/speckit.plan command output)
-├── research.md          # Phase 0 output (/speckit.plan command)
-├── data-model.md        # Phase 1 output (/speckit.plan command)
-├── quickstart.md        # Phase 1 output (/speckit.plan command)
-├── contracts/           # Phase 1 output (/speckit.plan command)
-└── tasks.md             # Phase 2 output (/speckit.tasks command - NOT created by /speckit.plan)
+├── plan.md # This file (/speckit.plan command output)
+├── research.md # Phase 0 output (/speckit.plan command)
+├── data-model.md # Phase 1 output (/speckit.plan command)
+├── quickstart.md # Phase 1 output (/speckit.plan command)
+├── contracts/ # Phase 1 output (/speckit.plan command)
+└── tasks.md # Phase 2 output (/speckit.tasks command - NOT created by /speckit.plan)
 ```
 
 ### Source Code (repository root)
 <!--
-  ACTION REQUIRED: Replace the placeholder tree below with the concrete layout
-  for this feature. Delete unused options and expand the chosen structure with
-  real paths (e.g., apps/admin, packages/something). The delivered plan must
-  not include Option labels.
+ ACTION REQUIRED: Replace the placeholder tree below with the concrete layout
+ for this feature. Delete unused options and expand the chosen structure with
+ real paths (e.g., apps/admin, packages/something). The delivered plan must
+ not include Option labels.
 -->
 
 ```text
@@ -82,21 +82,21 @@ README.md
 AGENTS.md
 docs/
 ├── architecture/
-│   └── foundation-architecture.md
+│ └── foundation-architecture.md
 ├── policies/
-│   └── allowed-sources.md
+│ └── allowed-sources.md
 └── validation/
-    └── event-contract-validation.md
+ └── event-contract-validation.md
 
 contracts/
 └── events/
-    └── asset-event.schema.json
+ └── asset-event.schema.json
 
 data/
 └── samples/
-    └── asset-events/
-        ├── valid/
-        └── invalid/
+ └── asset-events/
+ ├── valid/
+ └── invalid/
 
 specs/001-project-foundation/
 ├── plan.md

@@ -12,7 +12,7 @@ Run from the repository root:
 scripts/validation/check-market-snapshots.sh
 ```
 
-The command validates snapshot contracts, raw samples, normalized samples, active watchlist membership, invalid sample mappings, and non-advisory scope guardrails without network access or deployed services.
+The command validates snapshot contracts, raw samples, normalized samples, active watchlist membership, invalid sample mappings, and product boundary guardrails without network access or deployed services.
 
 ## Rule IDs
 
@@ -63,11 +63,11 @@ Reviewers must confirm valid normalized samples under `data/samples/market-snaps
 - Invalid samples must separately cover missing watchlist asset, inactive watchlist asset, malformed required fields, missing raw provenance, exchange symbol variant, and prohibited content.
 - Every invalid sample must be listed in `docs/validation/sample-rule-mapping.md` with at least one `MS-REQ-*` rule ID.
 
-## Non-Advisory Content Scan
+## Product Boundary Content Scan
 
 The local validation script rejects valid samples when it finds prohibited terms or fields associated with live feeds, target prices, ratings, rankings, trading signals, recommendations, portfolio allocation, or performance forecasts.
 
-Reviewers must also confirm that static sample values are educational and technical examples only. They are not live prices, advice, signals, ratings, rankings, or performance forecasts.
+Reviewers must also confirm that static sample values are functional and technical examples only. They are not live prices, advice, signals, ratings, rankings, or performance forecasts.
 
 ## Scope Guardrail Checklist
 
@@ -114,4 +114,4 @@ Pull requests must include:
 ## Guardrails
 
 - Validation must not fetch live prices, scrape websites, call external APIs, connect to databases, create service endpoints, produce streaming events, run dashboard code, or invoke AI analysis.
-- Snapshot artifacts are educational and technical sample data only; they are not investment advice, trading signals, ratings, rankings, recommendations, or forecasts.
+- Snapshot artifacts are technical sample data for pipeline validation.

@@ -23,7 +23,7 @@ Provide a local review path for the equity-primary Mexican market asset watchlis
 3. Confirm each primary target uses `asset_type` `equity`, `asset_role` `monitoring_target`, and currency `MXN`.
 4. Confirm `S&P/BMV IPC`, if present, uses `asset_type` `index` and `asset_role` `reference_benchmark`.
 5. Confirm market metadata identifies BMV/Mexico context without requiring an external lookup.
-6. Confirm traceability context explains inclusion without investment advice or trading signals.
+6. Confirm traceability context explains inclusion without personalized financial advice or trading signals.
 7. Confirm no watchlist or sample file contains live prices, target prices, ratings, recommendations, portfolio guidance, or performance forecasts.
 
 ## Local Validation
@@ -34,7 +34,7 @@ Run from the repository root:
 scripts/validation/check-asset-watchlist.sh
 ```
 
-The command verifies required paths, JSON parseability, equity-primary constraints, benchmark role constraints, rule IDs, invalid sample mappings, and non-advisory content guardrails.
+The command verifies required paths, JSON parseability, equity-primary constraints, benchmark role constraints, rule IDs, invalid sample mappings, and content guardrails.
 
 Expected output:
 

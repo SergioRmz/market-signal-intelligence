@@ -42,7 +42,7 @@
 
 ## Decision: Minimal Observed Value Shape
 
-**Decision**: Valid raw and normalized snapshot samples require `last_price`, `currency`, and `volume`; other market observation fields are optional when static, local, and non-advisory.
+**Decision**: Valid raw and normalized snapshot samples require `last_price`, `currency`, and `volume`; other market observation fields are optional when static, local, and .
 
 **Rationale**: These fields are enough to test basic value normalization while avoiding unnecessary OHLC complexity for a local foundation feature.
 

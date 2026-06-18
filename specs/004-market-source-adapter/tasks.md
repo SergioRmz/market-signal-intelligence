@@ -255,5 +255,5 @@ Task: "Create source limitations and usage constraints documentation in docs/sou
 - All tasks use Python 3.12, Bash 5.2+, jq 1.7, and Python standard library only unless a later governed change explicitly approves another dependency.
 - Do not add FastAPI endpoints, database persistence, Kafka, AWS resources, dashboards, AI analysis, multiple providers, production schedulers, or aggressive scraping.
 - Do not create provider-specific normalized schemas or duplicate normalization logic.
-- Keep all market values and source examples educational, technical, and non-advisory.
+- Keep all market values and source examples technical, technical, and .
 - Invalid adapter samples must map to `MSA-REQ-*` rule IDs in `docs/validation/sample-rule-mapping.md`.

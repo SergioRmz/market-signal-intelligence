@@ -50,7 +50,7 @@
 
 ### Implementation for User Story 1
 
-- [x] T012 [US1] Complete project purpose, scope, non-goals, disclaimer, planned stack, and methodology in `README.md`
+- [x] T012 [US1] Complete project purpose, scope, non-goals, product scope clarification, planned stack, and methodology in `README.md`
 - [x] T013 [US1] Complete agent operating guidance in `AGENTS.md`
 - [x] T014 [US1] Complete artifact manifest section requirements in `docs/foundation/artifact-manifest.md`
 - [x] T015 [US1] Add maintainer review procedure for baseline acceptance in `docs/validation/us1-review-procedure.md`

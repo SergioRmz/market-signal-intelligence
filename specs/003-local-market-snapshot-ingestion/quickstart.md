@@ -46,7 +46,7 @@ Expected output:
 PASS: Local market snapshot contracts and samples validated
 ```
 
-The command should validate required paths, JSON parseability, raw/normalized separation, active watchlist symbols, canonical symbol usage, `raw_snapshot_id` provenance links, observed value fields, invalid sample mappings, and non-advisory scope guardrails.
+The command should validate required paths, JSON parseability, raw/normalized separation, active watchlist symbols, canonical symbol usage, `raw_snapshot_id` provenance links, observed value fields, invalid sample mappings, and product boundary guardrails.
 
 ## PR Evidence
 

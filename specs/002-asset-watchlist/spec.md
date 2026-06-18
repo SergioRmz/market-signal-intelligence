@@ -6,7 +6,7 @@
 
 **Status**: Draft
 
-**Input**: User description: "Create the initial asset watchlist feature for BMV Signal Intelligence Platform. The goal is to define a small, explicit, versioned list of Mexican market assets that the system is allowed to monitor in later ingestion features. This feature must create a local watchlist artifact with ticker symbols, display names, market metadata, asset type, currency, active status, and optional notes. It must include validation rules and sample data, but it must not fetch live prices, scrape websites, call external APIs, create Kafka producers, create FastAPI endpoints, create a database, or implement AI analysis. The feature must align with the constitution: traceability first, no investment advice, no trading signals, no premature runtime implementation, and contract-first collaboration. The output should be understandable for maintainers, future agents, and future ingestion services."
+**Input**: User description: "Create the initial asset watchlist feature for Market Signal Intelligence Platform. The goal is to define a small, explicit, versioned list of governed market assets, starting with BMV that the system is allowed to monitor in later ingestion features. This feature must create a local watchlist artifact with ticker symbols, display names, market metadata, asset type, currency, active status, and optional notes. It must include validation rules and sample data, but it must not fetch live prices, scrape websites, call external APIs, create Kafka producers, create FastAPI endpoints, create a database, or implement AI analysis. The feature must align with the constitution: traceability first, , no trading signals, no premature runtime implementation, and contract-first collaboration. The output should be understandable for maintainers, future agents, and future ingestion services."
 
 ## Clarifications
 
@@ -22,9 +22,9 @@
 
 ### User Story 1 - Establish Allowed Asset Baseline (Priority: P1)
 
-As a maintainer, I need a small, explicit, versioned watchlist of individual Mexican market assets so future ingestion work has a governed list of equity tickers it is allowed to monitor.
+As a maintainer, I need a small, explicit, versioned watchlist of individual governed market assets, starting with BMV so future ingestion work has a governed list of equity tickers it is allowed to monitor.
 
-**Why this priority**: The platform cannot safely plan ingestion without a clear allowlist that defines asset scope, provenance, and non-advisory boundaries.
+**Why this priority**: The platform cannot safely plan ingestion without a clear allowlist that defines asset scope, provenance, and boundaries.
 
 **Independent Test**: Can be fully tested by reviewing the watchlist artifact and confirming every listed asset includes required metadata, version context, active status, role, and traceability fields without requiring external services.
 
@@ -52,13 +52,13 @@ As a contributor or future agent, I need explicit validation rules and examples 
 
 ---
 
-### User Story 3 - Preserve Non-Advisory Traceability (Priority: P3)
+### User Story 3 - Preserve Product Boundary Traceability (Priority: P3)
 
-As a reviewer, I need the watchlist to explain its provenance and boundaries so it cannot be mistaken for investment advice, trading signals, or an automated market data integration.
+As a reviewer, I need the watchlist to explain its provenance and boundaries so it cannot be mistaken for personalized financial advice, trading signals, or an automated market data integration.
 
-**Why this priority**: The constitution requires traceability, educational scope, and foundation-first delivery; the watchlist must not imply recommendations or runtime behavior.
+**Why this priority**: The constitution requires traceability, functional scope, and foundation-first delivery; the watchlist must not imply recommendations or runtime behavior.
 
-**Independent Test**: Can be tested by reviewing the watchlist, samples, and validation guidance for source references, change rationale, non-advisory language, and absence of live data behavior.
+**Independent Test**: Can be tested by reviewing the watchlist, samples, and validation guidance for source references, change rationale, language, and absence of live data behavior.
 
 **Acceptance Scenarios**:
 
@@ -96,7 +96,7 @@ As a reviewer, I need the watchlist to explain its provenance and boundaries so 
 - **FR-014**: The watchlist and samples MUST NOT include live prices, target prices, ratings, trading signals, buy/sell/hold language, portfolio allocation guidance, or performance predictions.
 - **FR-015**: The feature MUST NOT fetch live prices, scrape websites, call external APIs, create streaming producers, create service endpoints, create a database, implement automated ingestion, or implement AI analysis.
 - **FR-016**: Future ingestion services MUST be able to determine whether a candidate asset is allowed by checking `data/watchlists/asset-watchlist.json`, asset role, and active status without relying on external lookup behavior from this feature.
-- **FR-017**: The feature documentation MUST explain how maintainers should review additions, removals, or status changes while preserving traceability and non-advisory scope.
+- **FR-017**: The feature documentation MUST explain how maintainers should review additions, removals, or status changes while preserving traceability and product boundary.
 - **FR-018**: The feature deliverables MUST be understandable to maintainers, future agents, and future ingestion service owners without requiring platform runtime knowledge.
 - **FR-019**: Any changed repository artifacts introduced for this feature MUST be traceable through a manifest or feature-specific documentation that identifies their purpose and expected review criteria.
 - **FR-020**: If `S&P/BMV IPC` is included, it MUST use asset type `index`, asset role `reference_benchmark`, and MUST NOT count toward the minimum number of equity monitoring targets.
